@@ -1,6 +1,6 @@
-@import 'tailwindcss';
 @import url('tanker.css');
 @import url('general-sans.css');
+@import 'tailwindcss';
 
 @theme {
   --color-light-blue: #008ddc;
