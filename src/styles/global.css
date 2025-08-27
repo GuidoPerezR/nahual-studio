@@ -1,3 +1,5 @@
+@import url('tanker.css');
+@import url('general-sans.css');
 @import 'tailwindcss';
 
 @theme {
@@ -8,4 +10,21 @@
   --color-carnation: #ff6b6b;
   --color-slate-gray: #74838d;
   --color-athens-gray: #f2f4f8;
+
+  --font-tanker: 'Tanker-Regular';
+
+  --text-header-1: 89px;
+  --text-header-2: 67px;
+  /* --text-header-3: 50px; */
+  --text-header-4: 37px;
+
+  --text-header-1-mobile: 75px;
+  --text-header-2-mobile: 53px;
+  --text-header-4-mobile: 30px;
+
+  --leading-header: 96%;
+  --leading-paragraph: 180%;
+
+  --radius-image: 26px;
+  --radius-button: 6px;
 }
