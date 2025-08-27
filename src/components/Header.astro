@@ -1,0 +1,51 @@
+---
+import Logo from '@/assets/icons/logo.svg';
+---
+
+<header
+  class="bg-light-lily flex items-center justify-between px-5 py-[14px] md:px-24 md:py-3"
+>
+  <a href="/"> <Logo class={'text-light-blue '} /></a>
+
+  <label for="bars-button" class="z-20 md:hidden"> Bars</label>
+  <input type="checkbox" id="bars-button" hidden />
+
+  <nav
+    id="navbar"
+    class="bg-light-blue fixed right-0 top-0 z-10 h-dvh w-[80%] md:static md:h-fit md:w-fit md:bg-transparent"
+  >
+    <div class="px-[10px] py-[14px] md:hidden">
+      <a href="/"> <Logo class={'text-light-lily'} /></a>
+    </div>
+
+    <ul
+      class="text-light-lily md:text-light-blue font-general-sans space-y-4 px-5 py-[18px] md:flex md:items-center md:space-x-8 md:space-y-0 md:px-0 md:py-0"
+    >
+      <li>
+        <a href="/">Inicio</a>
+      </li>
+      <li>
+        <a href="/">Servicios</a>
+      </li>
+      <li>
+        <a href="/acerca">Acerca de</a>
+      </li>
+      <li>
+        <a href="/contacto">Contacto</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  @media (max-width: 767px) {
+    #navbar {
+      transform: translateX(100%);
+      transition: transform 0.4s ease-in-out;
+    }
+
+    #bars-button:checked ~ #navbar {
+      transform: translateX(0%);
+    }
+  }
+</style>

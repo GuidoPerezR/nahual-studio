@@ -1,12 +1,20 @@
 ---
 interface Props {
   label: string;
+  outline?: boolean;
 }
 
-const { label } = Astro.props;
+const { label, outline = false } = Astro.props;
 ---
 
 <button
-  class="bg-carnation text-light-lily rounded-button cursor-pointer px-3 py-2 text-center"
-  >{label}</button
+  class:list={[
+    'rounded-button font-general-sans cursor-pointer px-3 py-2 text-center font-semibold',
+    {
+      'bg-light-blue text-light-lily': !outline,
+    },
+    {
+      'border-light-blue text-light-blue border-2 bg-transparent': outline,
+    },
+  ]}>{label}</button
 >
