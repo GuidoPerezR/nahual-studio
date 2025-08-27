@@ -1,0 +1,25 @@
+---
+import Image from 'astro/components/Image.astro';
+
+interface Props {
+  image: ImageMetadata;
+  name: string;
+  job: string;
+}
+
+const { image, name, job } = Astro.props;
+---
+
+<article class="h-fit">
+  <Image
+    src={image}
+    alt={`Una foto de ${name}`}
+    class={'w-full h-full object-cover select-none rounded-image'}
+  />
+  <h4
+    class="text-light-lily text-header-4-mobile md:text-header-4 font-tanker mb-[6px] mt-6"
+  >
+    {name}
+  </h4>
+  <p class="text-light-lily leading-paragraph font-general-sans">{job}</p>
+</article>
