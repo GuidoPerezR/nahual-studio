@@ -1,6 +1,17 @@
-<article>
-  <a href="">
-    <img src="" alt="" />
-    <p>Eventos sociales</p>
+---
+const { service } = Astro.props;
+const { title, image, link } = service;
+---
+
+<article class="w-60">
+  <a href={link}>
+    <img
+      src={image}
+      alt={`Cobertura de ${title}`}
+      class="h-64 w-full rounded-2xl object-cover"
+    />
+    <p class="text-light-blue font-tanker text-header-4-mobile mt-2">
+      {title}
+    </p>
   </a>
 </article>

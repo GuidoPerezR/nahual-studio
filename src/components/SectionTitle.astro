@@ -1,0 +1,20 @@
+---
+const { class: className, style, mobile } = Astro.props;
+---
+
+<h2
+  class:list={[
+    'font-tanker text leading-header',
+    className,
+    {
+      'text-light-lily': style === 'light',
+      'text-light-blue': style === 'dark',
+    },
+    {
+      'text-header-2-mobile': mobile === 'true',
+      'text-header-2': mobile === 'false',
+    },
+  ]}
+>
+  <slot />
+</h2>

@@ -1,5 +1,28 @@
-<section>
-  <div>
+---
+import Paragraph from '@/components/Paragraph.astro';
+import SectionTitle from '@/components/SectionTitle.astro';
+
+const SESSIONS = [
+  {
+    title: 'Sesion de cumpleaños',
+    image: './test-image.png',
+    link: '#',
+  },
+  {
+    title: 'Fotografia interior',
+    image: './test-image.png',
+    link: '#',
+  },
+  {
+    title: 'Fotografia Gastronomica',
+    image: './test-image.png',
+    link: '#',
+  },
+];
+---
+
+<section class="bg-light-blue w-full px-5 py-16">
+  <div class="max-w-6xl">
     <div>
       <article>
         <a href="">
@@ -8,13 +31,16 @@
         </a>
       </article>
     </div>
-    <h2>Sesiones y fotografias</h2>
-    <p>
+    <SectionTitle style="dark" mobile="true">
+      Sesiones y fotografias
+    </SectionTitle>
+    <p>a</p>
+    <Paragraph style="light" class="bg-red-400">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni minus
       eaque nostrum. Laboriosam, velit ducimus perspiciatis saepe nisi quaerat
       quod dignissimos harum recusandae reiciendis numquam voluptates veniam
       placeat debitis est!
-    </p>
+    </Paragraph>
     <a href="">Agenda ahora</a>
   </div>
 </section>
