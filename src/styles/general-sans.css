@@ -1,0 +1,45 @@
+/**
+* @license
+*
+* Font Family: General Sans
+* Designed by: Frode Helland
+* URL: https://www.fontshare.com/fonts/general-sans
+* © 2025 Indian Type Foundry
+*
+* General Sans Extralight 
+* General Sans ExtralightItalic 
+* General Sans Light 
+* General Sans LightItalic 
+* General Sans Regular 
+* General Sans Italic 
+* General Sans Medium 
+* General Sans MediumItalic 
+* General Sans Semibold 
+* General Sans SemiboldItalic 
+* General Sans Bold 
+* General Sans BoldItalic 
+* General Sans Variable (Variable font)
+* General Sans VariableItalic (Variable font)
+
+*
+*/
+@font-face {
+  font-family: 'GeneralSans-Regular';
+  src:
+    url('fonts/general-sans/GeneralSans-Regular.woff2') format('woff2'),
+    url('fonts/general-sans/GeneralSans-Regular.woff') format('woff'),
+    url('fonts/general-sans/GeneralSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GeneralSans-Semibold';
+  src:
+    url('fonts/general-sans/GeneralSans-Semibold.woff2') format('woff2'),
+    url('fonts/general-sans/GeneralSans-Semibold.woff') format('woff'),
+    url('fonts/general-sans/GeneralSans-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
