@@ -1,5 +1,6 @@
 ---
 import MainButton from '@/components/MainButton.astro';
+import Paragraph from '@/components/Paragraph.astro';
 ---
 
 <aside class="bg-light-blue w-full py-1.5 text-center font-semibold text-white">
@@ -7,7 +8,7 @@ import MainButton from '@/components/MainButton.astro';
 </aside>
 
 <section
-  class="bg-light-lily flex min-h-dvh w-full flex-col items-center justify-center px-5 py-16"
+  class="bg-light-lily flex w-full flex-col items-center justify-center px-5 py-16"
 >
   <article
     class="from-light-blue via-light-lily max-w-6xl rounded-3xl bg-gradient-to-b from-10% via-50% to-transparent to-80%"
@@ -20,11 +21,11 @@ import MainButton from '@/components/MainButton.astro';
     >
       Creatividad que impacta
     </h1>
-    <p class="text-light-blue leading-paragraph mt-4 text-pretty">
+    <Paragraph style="dark" class="mt-4">
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto in
       fuga ad. Non esse doloremque, explicabo dolore iusto cumque odio vero sed
       voluptatibus. Sequi modi natus, quam officia ratione recusandae.
-    </p>
+    </Paragraph>
     <MainButton class="mt-8">¡Agenda ahora!</MainButton>
   </article>
 </section>

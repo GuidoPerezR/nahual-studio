@@ -1,59 +1,102 @@
-<footer>
-  <div>
-    <img src="" alt="" />
-    <div>
-      <img src="" alt="" />
-      <img src="" alt="" />
-      <img src="" alt="" />
-      <img src="" alt="" />
+---
+import Facebook from '@/assets/icons/facebook.svg';
+import Instagram from '@/assets/icons/instagram.svg';
+import Logo from '@/assets/icons/logo.svg';
+import TikTok from '@/assets/icons/tiktok.svg';
+import WhatsApp from '@/assets/icons/whatsapp.svg';
+
+const SOCIALS = [
+  {
+    url: 'https://www.facebook.com/nahual.studios/',
+    icon: Facebook,
+  },
+  {
+    url: 'https://www.instagram.com/nahual.studios/',
+    icon: Instagram,
+  },
+  {
+    url: 'https://wa.me/1234567890',
+    icon: WhatsApp,
+  },
+  {
+    url: 'https://www.tiktok.com/@nahual.studios',
+    icon: TikTok,
+  },
+];
+---
+
+<footer
+  class="bg-dark-blue text-athens-gray font-general-sans flex flex-col gap-8 px-5 py-8"
+>
+  <div class="flex items-center justify-between">
+    <Logo class="h-16" />
+    <div class="flex gap-6">
+      {
+        SOCIALS.map(({ url, icon: Icon }) => (
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            <Icon class="size-6" />
+          </a>
+        ))
+      }
     </div>
   </div>
-  <div>
-    <div>
-      <header><p>Coberturas</p></header>
-      <ul>
-        <li><a href="">Cobertura de eventos</a></li>
-        <li><a href="">Cobertura de boda2</a></li>
-        <li><a href="">Cobertura de XV años</a></li>
+  <div class="flex gap-6">
+    <div class="flex-1">
+      <header><p class="font-semibold">Coberturas</p></header>
+      <ul class="mt-1.5 flex flex-col gap-2">
+        <li>
+          <a href="" class="text-[15px]">Cobertura de Eventos</a>
+        </li>
+        <li><a href="" class="text-[15px]">Cobertura de Bodas</a></li>
+        <li><a href="" class="text-[15px]">Cobertura de XV años</a></li>
       </ul>
     </div>
-    <div>
+    <div class="flex-1">
       <header>
-        <p>Sesiones</p>
-        <ul>
-          <li><a href="">Sesion de cumpleaños</a></li>
-        </ul>
+        <p class="font-semibold">Sesiones</p>
       </header>
-    </div>
-  </div>
-  <div>
-    <div>
-      <header>
-        <p>Fotografias</p>
-      </header>
-      <ul>
-        <li>
-          <a href="">Fotografia de Interior</a>
-        </li>
-        <li>
-          <a href="">Fotografia Gastronomica</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <header>
-        <p>Diseño</p>
-      </header>
-      <ul>
-        <li>
-          <a href="">Creacion de marca</a>
-        </li>
+      <ul class="mt-1.5 flex flex-col gap-2">
+        <li><a href="" class="text-[15px]">Sesion de cumpleaños</a></li>
       </ul>
     </div>
   </div>
-  <div>
-    <a href="">Acerca de </a>
-    <a href="">Contacto</a>
+  <div class="mt-8 flex gap-6">
+    <div class="flex-1">
+      <header>
+        <p class="font-semibold">Fotografias</p>
+      </header>
+      <ul class="mt-1.5 flex flex-col gap-2">
+        <li>
+          <a href="" class="text-[15px]">Fotografia de Interior</a>
+        </li>
+        <li>
+          <a href="" class="text-[15px]">Fotografia Gastronomica</a>
+        </li>
+      </ul>
+    </div>
+    <div class="flex-1">
+      <header>
+        <p class="font-semibold">Diseño</p>
+      </header>
+      <ul class="mt-1.5 flex flex-col gap-2">
+        <li>
+          <a href="" class="text-[15px]">Creacion de marca</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div>© 2025 Nahual Studios. Todos los derechos reservados.</div>
+  <div class="mt-8 flex gap-6">
+    <div class="flex-1">
+      <a href="" class="font-semibold">Acerca de </a>
+    </div>
+    <div class="flex-1">
+      <a href="" class="font-semibold">Contacto</a>
+    </div>
+  </div>
+  <div
+    class="text-slate-gray mt-8 flex flex-col items-center justify-center gap-2"
+  >
+    <span>© 2025 Nahual Studios.</span>
+    <span>Todos los derechos reservados.</span>
+  </div>
 </footer>

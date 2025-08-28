@@ -1,16 +1,60 @@
-<section>
+---
+import Brush from '@/assets/icons/brush.svg';
+import Eye from '@/assets/icons/eye.svg';
+import Facebook from '@/assets/icons/facebook.svg';
+import FileText from '@/assets/icons/file-text.svg';
+import Megaphone from '@/assets/icons/megaphone.svg';
+import Tag from '@/assets/icons/tag.svg';
+import Paragraph from '@/components/Paragraph.astro';
+import SectionTitle from '@/components/SectionTitle.astro';
+
+const DESIGN_SERVICES = [
+  {
+    title: 'Creación de identidad visual',
+    icon: Eye,
+  },
+  {
+    title: 'Creación de marca',
+    icon: Brush,
+  },
+  {
+    title: 'Briefing',
+    icon: FileText,
+  },
+  {
+    title: 'Branding',
+    icon: Tag,
+  },
+  {
+    title: 'Marketing digital',
+    icon: Megaphone,
+  },
+  {
+    title: 'Manejo de redes sociales',
+    icon: Facebook,
+  },
+];
+---
+
+<section class="bg-light-lily w-full px-5 py-16">
   <header>
-    <h2>Diseño grafico</h2>
+    <SectionTitle style="dark" mobile="true"> Diseño gráfico </SectionTitle>
   </header>
-  <p>
+  <Paragraph style="dark" class="mt-4">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa iste odit
     alias? Doloremque eius accusantium et, cum, facilis eum dolorum perferendis
     a impedit enim consequuntur culpa, repellendus numquam aspernatur magni.
-  </p>
-  <div>
-    <article>
-      <img src="" alt="" />
-      <p>Creacion de identidad visual</p>
-    </article>
+  </Paragraph>
+  <div class="mt-16 grid grid-cols-2 gap-x-4 gap-y-16">
+    {
+      DESIGN_SERVICES.map(({ title, icon: Icon }) => (
+        <div class="flex flex-col items-center justify-center gap-4">
+          <Icon class="text-light-blue size-16" />
+          <span class="text-light-blue text-header-4-mobile font-tanker leading-header text-center">
+            {title}
+          </span>
+        </div>
+      ))
+    }
   </div>
 </section>
