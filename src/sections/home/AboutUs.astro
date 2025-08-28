@@ -1,17 +1,22 @@
+---
+import Paragraph from '@/components/Paragraph.astro';
+import SectionTitle from '@/components/SectionTitle.astro';
+---
+
 <section class="bg-light-blue w-full px-5 py-16 text-white">
   <div class="max-w-6xl">
     <header>
-      <h2 class="font-tanker text-header-2-mobile">
+      <SectionTitle style="light" mobile="true">
         <span class="text-carnation">¿</span>Quienes somos<span
           class="text-carnation">?</span
         >
-      </h2>
+      </SectionTitle>
     </header>
-    <p class="text-light-lily leading-paragraph text-pretty">
+    <Paragraph style="ligth" class="mt-4">
       Somos una agencia creativa especializada en diseño gráfico, fotografía y
       video profesional. Ofrecemos soluciones visuales y creativas de alta
       calidad, funcionales y pensadas para marcas, empresas y eventos.
-    </p>
+    </Paragraph>
     <img src="./test-image.png" alt="" class="mt-16 rounded-2xl" />
   </div>
 </section>
