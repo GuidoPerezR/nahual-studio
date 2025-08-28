@@ -1,5 +1,5 @@
 ---
-const { service } = Astro.props;
+const { service, style, size } = Astro.props;
 const { title, image, link } = service;
 ---
 
@@ -8,9 +8,23 @@ const { title, image, link } = service;
     <img
       src={image}
       alt={`Cobertura de ${title}`}
-      class="h-64 w-full rounded-2xl object-cover"
+      class:list={[
+        'w-full rounded-2xl object-cover',
+        {
+          'h-80': size === 'large',
+          'h-64': size === 'medium',
+        },
+      ]}
     />
-    <p class="text-light-blue font-tanker text-header-4-mobile mt-2">
+    <p
+      class:list={[
+        'font-tanker text-header-4-mobile leading-header mt-2',
+        {
+          'text-light-blue': style === 'dark',
+          'text-light-lily': style === 'light',
+        },
+      ]}
+    >
       {title}
     </p>
   </a>
