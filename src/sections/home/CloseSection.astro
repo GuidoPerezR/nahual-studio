@@ -1,15 +1,27 @@
-<section>
-  <div>
+---
+import MainButton from '@/components/MainButton.astro';
+import Paragraph from '@/components/Paragraph.astro';
+import SectionTitle from '@/components/SectionTitle.astro';
+---
+
+<section class="bg-light-lily w-full px-5 py-16">
+  <div class="max-w-6xl">
     <header>
-      <h2>Tu esencia hecha imagen</h2>
+      <SectionTitle style="dark" mobile="true">
+        Tu esencia hecha imagen
+      </SectionTitle>
     </header>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-    </p>
-    <a href="">Contactanos</a>
-    <img src="" alt="" />
+    <Paragraph style="dark" class="mt-4">
+      Nos mueve el deseo de ayudar a nuestros clientes a construir una imagen
+      sólida, coherente y visualmente atractiva, que no solo conecte de forma
+      genuina con su público, sino que también refleje fielmente su
+      personalidad, valores y esencia.
+    </Paragraph>
+    <Paragraph style="dark" class="mt-8">
+      Creemos que una buena imagen no solo comunica, sino que deja huella, y por
+      eso trabajamos cada detalle con intención, creatividad y estrategia.
+    </Paragraph>
+    <MainButton class="mt-8">¡Contactanos!</MainButton>
+    <img src="./test-image.png" alt="" class="mt-16 rounded-2xl" />
   </div>
 </section>
