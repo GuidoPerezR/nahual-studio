@@ -2,6 +2,21 @@
 import Logo from '@/assets/icons/logo.svg';
 import Menu from '@/assets/icons/menu.svg';
 import X from '@/assets/icons/x.svg';
+
+const services = [
+  {
+    name: 'Cobertura de eventos sociales',
+    href: '/cobertura/eventos-sociales',
+  },
+  {
+    name: 'Cobertura de  XV años',
+    href: '/cobertura/xv-anos',
+  },
+  {
+    name: 'Cobertura de bodas',
+    href: '/cobertura/bodas',
+  },
+];
 ---
 
 <header
@@ -41,8 +56,25 @@ import X from '@/assets/icons/x.svg';
       <li>
         <a href="/">Inicio</a>
       </li>
-      <li>
-        <a href="/">Servicios</a>
+      <li class="relative">
+        <label class="peer">
+          Servicios
+          <input type="checkbox" id="dropdown" hidden />
+        </label>
+
+        <ul
+          class="bg-light-lily text-light-blue peer-has-checked:block absolute top-[59px] hidden w-52 gap-3 rounded-b-[14px] p-2 drop-shadow-2xl"
+        >
+          {
+            services?.map((service) => (
+              <li class="hover:bg-dark-lily hover:text-light-lily rounded-button p-2">
+                <a href={service.href} class="w-full">
+                  {service.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </li>
       <li>
         <a href="/acerca">Acerca de</a>
