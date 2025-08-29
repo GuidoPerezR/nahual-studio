@@ -26,77 +26,96 @@ const SOCIALS = [
 ---
 
 <footer
-  class="bg-dark-blue text-athens-gray font-general-sans flex flex-col gap-8 px-5 py-8"
+  class="bg-dark-blue text-athens-gray font-general-sans px-5 py-8 font-light md:px-10 md:py-16"
 >
-  <div class="flex items-center justify-between">
-    <Logo class="h-16" />
-    <div class="flex gap-6">
-      {
-        SOCIALS.map(({ url, icon: Icon }) => (
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            <Icon class="size-6" />
-          </a>
-        ))
-      }
+  <div class="mx-auto flex max-w-6xl flex-col gap-8">
+    <div class="flex items-center justify-between">
+      <Logo class="h-16" />
+      <div class="flex gap-6">
+        {
+          SOCIALS.map(({ url, icon: Icon }) => (
+            <a href={url} target="_blank" rel="noopener noreferrer">
+              <Icon class="size-6" />
+            </a>
+          ))
+        }
+      </div>
     </div>
-  </div>
-  <div class="flex gap-6">
-    <div class="flex-1">
-      <header><p class="font-semibold">Coberturas</p></header>
-      <ul class="mt-1.5 flex flex-col gap-2">
-        <li>
-          <a href="" class="text-[15px]">Cobertura de Eventos</a>
-        </li>
-        <li><a href="" class="text-[15px]">Cobertura de Bodas</a></li>
-        <li><a href="" class="text-[15px]">Cobertura de XV años</a></li>
-      </ul>
+    <div class="flex flex-col gap-6 md:flex-row">
+      <div class="flex flex-1 gap-6">
+        <div class="flex-1">
+          <header><p class="font-semibold">Coberturas</p></header>
+          <ul class="mt-1.5 flex flex-col gap-2">
+            <li>
+              <a href="" class="text-[15px]">Cobertura de Eventos</a>
+            </li>
+            <li><a href="" class="text-[15px]">Cobertura de Bodas</a></li>
+            <li><a href="" class="text-[15px]">Cobertura de XV años</a></li>
+          </ul>
+        </div>
+        <div class="flex-1">
+          <header>
+            <p class="font-semibold">Sesiones</p>
+          </header>
+          <ul class="mt-1.5 flex flex-col gap-2">
+            <li><a href="" class="text-[15px]">Sesion de cumpleaños</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-8 flex flex-1 gap-6 md:mt-0">
+        <div class="flex-1">
+          <header>
+            <p class="font-semibold">Fotografias</p>
+          </header>
+          <ul class="mt-1.5 flex flex-col gap-2">
+            <li>
+              <a href="" class="text-[15px]">Fotografia de Interior</a>
+            </li>
+            <li>
+              <a href="" class="text-[15px]">Fotografia Gastronomica</a>
+            </li>
+          </ul>
+        </div>
+        <div class="flex-1">
+          <header>
+            <p class="font-semibold">Diseño</p>
+          </header>
+          <ul class="mt-1.5 flex flex-col gap-2">
+            <li>
+              <a href="" class="text-[15px]">Creacion de marca</a>
+            </li>
+            <li>
+              <a href="" class="text-[15px]">Creacion de identidad visual</a>
+            </li>
+            <li>
+              <a href="" class="text-[15px]">Briefing</a>
+            </li>
+            <li>
+              <a href="" class="text-[15px]">Branding</a>
+            </li>
+            <li>
+              <a href="" class="text-[15px]">Marketing Digital</a>
+            </li>
+            <li>
+              <a href="" class="text-[15px]">Manejo de Redes Sociales</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-8 flex flex-1 gap-6 md:mt-0">
+        <div class="flex-1">
+          <a href="" class="font-semibold">Acerca de </a>
+        </div>
+        <div class="flex-1">
+          <a href="" class="font-semibold">Contacto</a>
+        </div>
+      </div>
     </div>
-    <div class="flex-1">
-      <header>
-        <p class="font-semibold">Sesiones</p>
-      </header>
-      <ul class="mt-1.5 flex flex-col gap-2">
-        <li><a href="" class="text-[15px]">Sesion de cumpleaños</a></li>
-      </ul>
+    <div
+      class="text-slate-gray mt-8 flex flex-col items-center justify-center gap-2 md:mt-16 md:flex-row"
+    >
+      <span>© 2025 Nahual Studios.</span>
+      <span>Todos los derechos reservados.</span>
     </div>
-  </div>
-  <div class="mt-8 flex gap-6">
-    <div class="flex-1">
-      <header>
-        <p class="font-semibold">Fotografias</p>
-      </header>
-      <ul class="mt-1.5 flex flex-col gap-2">
-        <li>
-          <a href="" class="text-[15px]">Fotografia de Interior</a>
-        </li>
-        <li>
-          <a href="" class="text-[15px]">Fotografia Gastronomica</a>
-        </li>
-      </ul>
-    </div>
-    <div class="flex-1">
-      <header>
-        <p class="font-semibold">Diseño</p>
-      </header>
-      <ul class="mt-1.5 flex flex-col gap-2">
-        <li>
-          <a href="" class="text-[15px]">Creacion de marca</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="mt-8 flex gap-6">
-    <div class="flex-1">
-      <a href="" class="font-semibold">Acerca de </a>
-    </div>
-    <div class="flex-1">
-      <a href="" class="font-semibold">Contacto</a>
-    </div>
-  </div>
-  <div
-    class="text-slate-gray mt-8 flex flex-col items-center justify-center gap-2"
-  >
-    <span>© 2025 Nahual Studios.</span>
-    <span>Todos los derechos reservados.</span>
   </div>
 </footer>
