@@ -3,29 +3,42 @@ import MainButton from '@/components/MainButton.astro';
 import Paragraph from '@/components/Paragraph.astro';
 ---
 
-<aside class="bg-light-blue w-full py-1.5 text-center font-semibold text-white">
-  <p>Soluciones visuales y creativas de alta calidad</p>
-</aside>
-
 <section
-  class="bg-light-lily flex w-full flex-col items-center justify-center px-5 py-16"
+  class="bg-light-lily flex w-full flex-col items-center justify-center px-5 py-16 lg:pb-0 lg:pt-20"
 >
-  <article
-    class="from-light-blue via-light-lily max-w-6xl rounded-3xl bg-gradient-to-b from-10% via-50% to-transparent to-80%"
+  <div
+    class="from-light-blue via-light-lily flex max-w-6xl flex-col justify-between rounded-3xl bg-gradient-to-b from-10% via-50% to-transparent to-80% md:flex-row-reverse md:gap-6 md:bg-none"
   >
-    <div class="p-3">
-      <img src="./test-image.png" alt="" class="rounded-2xl" />
-    </div>
-    <h1
-      class="text-light-blue font-tanker leading-header text-header-1-mobile mt-6"
+    <article
+      class="bg-gradient h-[614px] flex-1 p-3 md:rounded-[42px] md:p-6 lg:pb-0"
     >
-      Creatividad que impacta
-    </h1>
-    <Paragraph style="dark" class="mt-4">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto in
-      fuga ad. Non esse doloremque, explicabo dolore iusto cumque odio vero sed
-      voluptatibus. Sequi modi natus, quam officia ratione recusandae.
-    </Paragraph>
-    <MainButton class="mt-8">¡Agenda ahora!</MainButton>
-  </article>
+      <img src="./test-image.png" alt="" class="rounded-2xl md:rounded-3xl" />
+    </article>
+    <div class="flex-1">
+      <h1
+        class="text-light-blue font-tanker leading-header text-header-1-mobile lg:text-header-1 mt-6 text-balance"
+      >
+        Creatividad que impacta
+      </h1>
+      <Paragraph style="dark" class="mt-4 max-w-md">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto in
+        fuga ad. Non esse doloremque, explicabo dolore iusto cumque odio vero
+        sed voluptatibus. Sequi modi natus, quam officia ratione recusandae.
+      </Paragraph>
+      <MainButton class="mt-8">¡Agenda ahora!</MainButton>
+    </div>
+  </div>
 </section>
+
+<style>
+  @media (min-width: 767px) {
+    .bg-gradient {
+      background: linear-gradient(
+        to bottom,
+        #008ddc 20%,
+        #e6f7fb 95%,
+        transparent 100%
+      );
+    }
+  }
+</style>

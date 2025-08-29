@@ -4,24 +4,34 @@ import Paragraph from '@/components/Paragraph.astro';
 import SectionTitle from '@/components/SectionTitle.astro';
 ---
 
-<section class="bg-light-lily w-full px-5 py-16">
-  <div class="max-w-6xl">
-    <header>
-      <SectionTitle style="dark" mobile="true">
-        Tu esencia hecha imagen
-      </SectionTitle>
-    </header>
-    <Paragraph style="dark" class="mt-4">
-      Nos mueve el deseo de ayudar a nuestros clientes a construir una imagen
-      sólida, coherente y visualmente atractiva, que no solo conecte de forma
-      genuina con su público, sino que también refleje fielmente su
-      personalidad, valores y esencia.
-    </Paragraph>
-    <Paragraph style="dark" class="mt-8">
-      Creemos que una buena imagen no solo comunica, sino que deja huella, y por
-      eso trabajamos cada detalle con intención, creatividad y estrategia.
-    </Paragraph>
-    <MainButton class="mt-8">¡Contactanos!</MainButton>
-    <img src="./test-image.png" alt="" class="mt-16 rounded-2xl" />
+<section class="bg-light-lily w-full px-5 py-16 lg:py-20">
+  <div
+    class="mx-auto flex max-w-6xl flex-col items-center justify-center md:flex-row-reverse md:gap-6 lg:gap-12"
+  >
+    <div class="flex-1">
+      <header>
+        <SectionTitle style="dark" mobile="true">
+          Tu esencia hecha imagen
+        </SectionTitle>
+      </header>
+      <Paragraph style="dark" class="mt-4 max-w-md">
+        Nos mueve el deseo de ayudar a nuestros clientes a construir una imagen
+        sólida, coherente y visualmente atractiva, que no solo conecte de forma
+        genuina con su público, sino que también refleje fielmente su
+        personalidad, valores y esencia.
+      </Paragraph>
+      <Paragraph style="dark" class="mt-8 max-w-md">
+        Creemos que una buena imagen no solo comunica, sino que deja huella, y
+        por eso trabajamos cada detalle con intención, creatividad y estrategia.
+      </Paragraph>
+      <MainButton class="mt-8">¡Contactanos!</MainButton>
+    </div>
+    <div class="flex-1">
+      <img
+        src="./test-image.png"
+        alt=""
+        class="mt-16 rounded-2xl md:mt-0 md:rounded-3xl"
+      />
+    </div>
   </div>
 </section>
