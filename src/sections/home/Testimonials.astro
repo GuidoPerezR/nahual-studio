@@ -1,43 +1,59 @@
 ---
+import Left from '@/assets/icons/left.svg';
 import Quotation from '@/assets/icons/quotation.svg';
+import Rigth from '@/assets/icons/rigth.svg';
 import Paragraph from '@/components/Paragraph.astro';
 import SectionTitle from '@/components/SectionTitle.astro';
 ---
 
-<section class="bg-light-blue w-full px-5 py-16">
-  <div class="max-w-6xl">
-    <article class="bg-light-lily rounded-2xl p-6">
-      <Quotation />
+<section class="bg-light-blue w-full px-5 py-16 lg:py-20">
+  <div
+    class="mx-auto flex max-w-6xl flex-col items-center justify-center md:flex-row-reverse md:gap-6"
+  >
+    <div class="flex items-center gap-2 lg:gap-4">
+      <div class="text-light-lily hidden cursor-pointer md:block">
+        <Left class="size-8" />
+      </div>
+      <article
+        class="bg-light-lily max-w-[476px] flex-1 rounded-2xl p-6 md:rounded-3xl"
+      >
+        <Quotation />
 
-      <Paragraph style="dark" class="mt-4">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio optio
-        dolorum culpa sint iure! Voluptatum vero, dolor cumque maiores
-        consequatur quod beatae modi placeat corrupti autem quisquam aliquid
-        quaerat sunt.
+        <Paragraph style="dark" class="mt-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio optio
+          dolorum culpa sint iure! Voluptatum vero, dolor cumque maiores
+          consequatur quod beatae modi placeat corrupti autem quisquam aliquid
+          quaerat sunt.
+        </Paragraph>
+        <footer class="mt-6 flex items-center gap-3.5 md:mt-20">
+          <img
+            src="./test-image.png"
+            alt=""
+            class="size-12 rounded-full object-cover"
+          />
+          <div>
+            <p class="text-light-blue font-general-sans font-semibold">
+              Javier Zavala
+            </p>
+            <p class="text-light-blue font-general-sans text-[15px]">
+              Fiesta de XV anos
+            </p>
+          </div>
+        </footer>
+      </article>
+      <div class="text-light-lily hidden size-8 cursor-pointer md:block">
+        <Rigth class="size-8" />
+      </div>
+    </div>
+    <div class="flex-1">
+      <SectionTitle style="light" mobile="true" class="mt-16 md:mt-0">
+        Testimonios
+      </SectionTitle>
+      <Paragraph style="light" class="mt-4 max-w-xs">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+        commodi illo placeat necessitatibus consectetur ducimus voluptates
+        dolorum vel
       </Paragraph>
-      <footer class="mt-6 flex items-center gap-3.5">
-        <img
-          src="./test-image.png"
-          alt=""
-          class="size-12 rounded-full object-cover"
-        />
-        <div>
-          <p class="text-light-blue font-general-sans font-semibold">
-            Javier Zavala
-          </p>
-          <p class="text-light-blue font-general-sans text-[15px]">
-            Fiesta de XV anos
-          </p>
-        </div>
-      </footer>
-    </article>
-    <SectionTitle style="light" mobile="true" class="mt-16">
-      Testimonios
-    </SectionTitle>
-    <Paragraph style="light" class="mt-4">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci commodi
-      illo placeat necessitatibus consectetur ducimus voluptates dolorum vel,
-      harum earum praesentium laudantium esse dolor? Ad dignissimos quia aperiam
-    </Paragraph>
+    </div>
   </div>
 </section>

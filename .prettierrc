@@ -9,6 +9,7 @@
     "prettier-plugin-astro-organize-imports"
   ],
   "tailwindStylesheet": "./src/styles/globals.css",
+  "astroOrganizeImportsMode": "SortAndCombine",
   "overrides": [
     {
       "files": "*.astro",

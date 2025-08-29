@@ -36,25 +36,30 @@ const DESIGN_SERVICES = [
 ];
 ---
 
-<section class="bg-light-lily w-full px-5 py-16">
-  <header>
-    <SectionTitle style="dark" mobile="true"> Diseño gráfico </SectionTitle>
-  </header>
-  <Paragraph style="dark" class="mt-4">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa iste odit
-    alias? Doloremque eius accusantium et, cum, facilis eum dolorum perferendis
-    a impedit enim consequuntur culpa, repellendus numquam aspernatur magni.
-  </Paragraph>
-  <div class="mt-16 grid grid-cols-2 gap-x-4 gap-y-16">
-    {
-      DESIGN_SERVICES.map(({ title, icon: Icon }) => (
-        <div class="flex flex-col items-center justify-center gap-4">
-          <Icon class="text-light-blue size-16" />
-          <span class="text-light-blue text-header-4-mobile font-tanker leading-header text-center">
-            {title}
-          </span>
-        </div>
-      ))
-    }
+<section class="bg-light-lily w-full px-5 py-16 lg:py-20">
+  <div class="mx-auto max-w-6xl">
+    <header>
+      <SectionTitle style="dark" mobile="true"> Diseño gráfico </SectionTitle>
+    </header>
+    <Paragraph style="dark" class="mt-4 max-w-sm">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa iste odit
+      alias? Doloremque eius accusantium et, cum, facilis eum dolorum
+      perferendis a impedit enim consequuntur culpa, repellendus numquam
+      aspernatur magni.
+    </Paragraph>
+    <div
+      class="mx-auto mt-16 grid max-w-5xl grid-cols-2 gap-x-4 gap-y-16 md:grid-cols-3 md:gap-y-4"
+    >
+      {
+        DESIGN_SERVICES.map(({ title, icon: Icon }) => (
+          <div class="flex flex-col items-center justify-center gap-4 md:p-4">
+            <Icon class="text-light-blue size-16 lg:size-20" />
+            <span class="text-light-blue text-header-4-mobile font-tanker leading-header lg:text-header-4 text-balance text-center">
+              {title}
+            </span>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>

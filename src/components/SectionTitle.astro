@@ -1,18 +1,14 @@
 ---
-const { class: className, style, mobile } = Astro.props;
+const { class: className, style } = Astro.props;
 ---
 
 <h2
   class:list={[
-    'font-tanker leading-header',
+    'font-tanker leading-header text-header-2-mobile md:text-header-2',
     className,
     {
       'text-light-lily': style === 'light',
       'text-light-blue': style === 'dark',
-    },
-    {
-      'text-header-2-mobile': mobile === 'true',
-      'text-header-2': mobile === 'false',
     },
   ]}
 >

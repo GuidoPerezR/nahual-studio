@@ -3,22 +3,22 @@ const { service, style, size } = Astro.props;
 const { title, image, link } = service;
 ---
 
-<article class="w-60">
+<article class="w-60 md:w-full md:p-6">
   <a href={link}>
     <img
       src={image}
       alt={`Cobertura de ${title}`}
       class:list={[
-        'w-full rounded-2xl object-cover',
+        'w-full rounded-2xl object-cover md:rounded-3xl',
         {
-          'h-80': size === 'large',
-          'h-64': size === 'medium',
+          'h-80 md:h-[419px]': size === 'large',
+          'h-64 md:h-[329px]': size === 'medium',
         },
       ]}
     />
     <p
       class:list={[
-        'font-tanker text-header-4-mobile leading-header mt-2',
+        'font-tanker text-header-4-mobile leading-header lg:text-header-4 mt-2 md:mt-6',
         {
           'text-light-blue': style === 'dark',
           'text-light-lily': style === 'light',
