@@ -1,6 +1,8 @@
 ---
+import MainButton from '@/components/MainButton.astro';
 import Paragraph from '@/components/Paragraph.astro';
 import SectionTitle from '@/components/SectionTitle.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
 
 const SESSIONS = [
   {
@@ -9,12 +11,12 @@ const SESSIONS = [
     link: '#',
   },
   {
-    title: 'Fotografia interior',
+    title: 'Fotografía interior',
     image: './test-image.png',
     link: '#',
   },
   {
-    title: 'Fotografia Gastronomica',
+    title: 'Fotografía Gastronómica',
     image: './test-image.png',
     link: '#',
   },
@@ -23,24 +25,30 @@ const SESSIONS = [
 
 <section class="bg-light-blue w-full px-5 py-16">
   <div class="max-w-6xl">
-    <div>
-      <article>
-        <a href="">
-          <img src="" alt="" />
-          <p>Sesion de cumpleaños</p>
-        </a>
-      </article>
-    </div>
-    <SectionTitle style="dark" mobile="true">
-      Sesiones y fotografias
+    <ul class="no-scrollbar mt-16 flex w-full gap-6 overflow-x-auto">
+      {
+        SESSIONS.map((session) => (
+          <li>
+            <ServiceCard service={session} style="light" size="large" />
+          </li>
+        ))
+      }
+    </ul>
+    <SectionTitle style="light" mobile="true" class="mt-16">
+      Sesiones y fotografías
     </SectionTitle>
-    <p>a</p>
-    <Paragraph style="light" class="bg-red-400">
+    <Paragraph style="light" class="mt-4">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni minus
       eaque nostrum. Laboriosam, velit ducimus perspiciatis saepe nisi quaerat
       quod dignissimos harum recusandae reiciendis numquam voluptates veniam
       placeat debitis est!
     </Paragraph>
-    <a href="">Agenda ahora</a>
+    <MainButton class="mt-8">¡Agenda ahora!</MainButton>
   </div>
 </section>
+
+<style>
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+</style>

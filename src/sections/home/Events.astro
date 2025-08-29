@@ -1,4 +1,6 @@
 ---
+import Paragraph from '@/components/Paragraph.astro';
+import SectionTitle from '@/components/SectionTitle.astro';
 import ServiceCard from '@/components/ServiceCard.astro';
 
 const EVENTS = [
@@ -23,20 +25,30 @@ const EVENTS = [
 <section class="bg-light-lily w-full overflow-hidden px-5 py-16">
   <div class="max-w-6xl">
     <header>
-      <h2
-        class="font-tanker text-header-2-mobile text leading-header text-light-blue"
-      >
+      <SectionTitle style="dark" mobile="true">
         Cobertura de evento
-      </h2>
+      </SectionTitle>
     </header>
-    <p class="leading-paragraph text-light-blue mt-4 text-pretty">
+    <Paragraph style="dark" class="mt-4">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente error,
       eligendi illo praesentium alias voluptatibus dignissimos at repellendus
       repellat amet, animi tempore, tempora aperiam facilis laborum omnis hic
       natus numquam?
-    </p>
-    <div class="mt-16 flex w-max gap-6 overflow-x-scroll">
-      {EVENTS.map((event) => <ServiceCard service={event} />)}
-    </div>
+    </Paragraph>
+    <ul class="no-scrollbar mt-16 flex w-full gap-6 overflow-x-auto">
+      {
+        EVENTS.map((event) => (
+          <li>
+            <ServiceCard service={event} style="dark" size="medium" />
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </section>
+
+<style>
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+</style>
