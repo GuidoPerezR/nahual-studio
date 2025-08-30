@@ -3,11 +3,26 @@ const { class: className } = Astro.props;
 ---
 
 <a
-  href=""
+  href="#"
   class:list={[
-    'bg-carnation flex w-40 items-center justify-center rounded-md px-6 py-2 font-semibold text-white',
+    'bg-carnation font-general-sans flex w-40 items-center justify-center rounded-md py-2 font-semibold text-white',
     className,
   ]}
 >
   <slot />
 </a>
+
+<style>
+  a {
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+    &:hover {
+      background-color: var(--color-dark-carnation);
+      transform: scale(105%);
+    }
+    &:active {
+      transform: scale(95%);
+    }
+  }
+</style>

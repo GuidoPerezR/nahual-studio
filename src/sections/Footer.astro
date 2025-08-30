@@ -1,9 +1,10 @@
 ---
-import Facebook from '@/assets/icons/facebook.svg';
+import Facebook from '@/assets/icons/facebook-footer.svg';
 import Instagram from '@/assets/icons/instagram.svg';
 import Logo from '@/assets/icons/logo.svg';
 import TikTok from '@/assets/icons/tiktok.svg';
 import WhatsApp from '@/assets/icons/whatsapp.svg';
+import FooterLink from '@/components/FooterLink.astro';
 
 const SOCIALS = [
   {
@@ -34,7 +35,12 @@ const SOCIALS = [
       <div class="flex gap-6">
         {
           SOCIALS.map(({ url, icon: Icon }) => (
-            <a href={url} target="_blank" rel="noopener noreferrer">
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-light-blue transition-colors duration-200"
+            >
               <Icon class="size-6" />
             </a>
           ))
@@ -47,10 +53,14 @@ const SOCIALS = [
           <header><p class="font-semibold">Coberturas</p></header>
           <ul class="mt-1.5 flex flex-col gap-2">
             <li>
-              <a href="" class="text-[15px]">Cobertura de Eventos</a>
+              <FooterLink url="#"> Cobertura de Eventos </FooterLink>
             </li>
-            <li><a href="" class="text-[15px]">Cobertura de Bodas</a></li>
-            <li><a href="" class="text-[15px]">Cobertura de XV años</a></li>
+            <li>
+              <FooterLink url="#"> Cobertura de Bodas </FooterLink>
+            </li>
+            <li>
+              <FooterLink url="#"> Cobertura de XV años </FooterLink>
+            </li>
           </ul>
         </div>
         <div class="flex-1">
@@ -58,7 +68,9 @@ const SOCIALS = [
             <p class="font-semibold">Sesiones</p>
           </header>
           <ul class="mt-1.5 flex flex-col gap-2">
-            <li><a href="" class="text-[15px]">Sesion de cumpleaños</a></li>
+            <li>
+              <FooterLink url="#"> Sesión de cumpleaños </FooterLink>
+            </li>
           </ul>
         </div>
       </div>
@@ -69,10 +81,10 @@ const SOCIALS = [
           </header>
           <ul class="mt-1.5 flex flex-col gap-2">
             <li>
-              <a href="" class="text-[15px]">Fotografia de Interior</a>
+              <FooterLink url="#"> Fotografía de Interior </FooterLink>
             </li>
             <li>
-              <a href="" class="text-[15px]">Fotografia Gastronomica</a>
+              <FooterLink url="#"> Fotografía Gastronómica </FooterLink>
             </li>
           </ul>
         </div>
@@ -82,22 +94,22 @@ const SOCIALS = [
           </header>
           <ul class="mt-1.5 flex flex-col gap-2">
             <li>
-              <a href="" class="text-[15px]">Creacion de marca</a>
+              <FooterLink url="#"> Creación de marca </FooterLink>
             </li>
             <li>
-              <a href="" class="text-[15px]">Creacion de identidad visual</a>
+              <FooterLink url="#"> Creación de identidad visual </FooterLink>
             </li>
             <li>
-              <a href="" class="text-[15px]">Briefing</a>
+              <FooterLink url="#"> Briefing </FooterLink>
             </li>
             <li>
-              <a href="" class="text-[15px]">Branding</a>
+              <FooterLink url="#"> Branding </FooterLink>
             </li>
             <li>
-              <a href="" class="text-[15px]">Marketing Digital</a>
+              <FooterLink url="#"> Marketing Digital </FooterLink>
             </li>
             <li>
-              <a href="" class="text-[15px]">Manejo de Redes Sociales</a>
+              <FooterLink url="#"> Manejo de Redes Sociales </FooterLink>
             </li>
           </ul>
         </div>

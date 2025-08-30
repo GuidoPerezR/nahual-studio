@@ -11,7 +11,9 @@ import SectionTitle from '@/components/SectionTitle.astro';
     class="mx-auto flex max-w-6xl flex-col items-center justify-center md:flex-row-reverse md:gap-6"
   >
     <div class="flex items-center gap-2 lg:gap-4">
-      <div class="text-light-lily hidden cursor-pointer md:block">
+      <div
+        class="text-light-lily hover:text-carnation hidden cursor-pointer transition-colors duration-200 md:block"
+      >
         <Left class="size-8" />
       </div>
       <article
@@ -41,7 +43,9 @@ import SectionTitle from '@/components/SectionTitle.astro';
           </div>
         </footer>
       </article>
-      <div class="text-light-lily hidden size-8 cursor-pointer md:block">
+      <div
+        class="text-light-lily hover:text-carnation hidden size-8 cursor-pointer transition-colors duration-200 md:block"
+      >
         <Rigth class="size-8" />
       </div>
     </div>

@@ -3,7 +3,15 @@ const { service, style, size } = Astro.props;
 const { title, image, link } = service;
 ---
 
-<article class="w-60 md:w-full md:p-6">
+<article
+  class:list={[
+    'w-60 rounded-[52px] transition-colors duration-200 md:w-full md:p-6',
+    {
+      'hover:bg-light-blue group': style === 'dark',
+      'hover:bg-light-lily group': style === 'light',
+    },
+  ]}
+>
   <a href={link}>
     <img
       src={image}
@@ -18,10 +26,10 @@ const { title, image, link } = service;
     />
     <p
       class:list={[
-        'font-tanker text-header-4-mobile leading-header lg:text-header-4 mt-2 md:mt-6',
+        'font-tanker text-header-4-mobile leading-header lg:text-header-4 max-w-3xs mt-2 transition-colors duration-200 md:mt-6',
         {
-          'text-light-blue': style === 'dark',
-          'text-light-lily': style === 'light',
+          'text-light-blue group-hover:text-light-lily': style === 'dark',
+          'text-light-lily group-hover:text-light-blue': style === 'light',
         },
       ]}
     >
