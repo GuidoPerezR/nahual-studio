@@ -1,16 +1,15 @@
 ---
 import Boda1 from '@/assets/images/boda-1.png';
 import BackgroundHero from '@/components/Sections/BackgroundHero.astro';
-import PrimaryBento from '@/components/Sections/PrimaryBento.astro';
-import PrimaryTextImage from '@/components/Sections/PrimaryTextImage.astro';
+import SecondaryBento from '@/components/Sections/SecondaryBento.astro';
+import SecondaryTextImage from '@/components/Sections/SecondaryTextImage.astro';
 import Layout from '@/layouts/Layout.astro';
 
 const primaryImage = { image: Boda1, alt: 'Una foto' };
-
 const bentoImages = [
   { image: Boda1, alt: 'Una foto' },
   { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una photo' },
+  { image: Boda1, alt: 'Una foto' },
   { image: Boda1, alt: 'Una foto' },
   { image: Boda1, alt: 'Una foto' },
 ];
@@ -21,17 +20,17 @@ const bentoImages = [
     <h1
       class="text-light-lily text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
     >
-      Cobertura de bodas
+      Cobertura de eventos sociales
     </h1>
   </BackgroundHero>
 
-  <PrimaryTextImage
+  <SecondaryTextImage
     title="Lorem ipsum dolor sit"
     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
     image={primaryImage}
   />
 
-  <PrimaryBento
+  <SecondaryBento
     title="Lorem ipsum dolor sit"
     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
     buttonLabel="¡Agenda ahora!"

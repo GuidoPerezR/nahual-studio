@@ -1,21 +1,53 @@
 ---
 import Logo from '@/assets/icons/logo.svg';
+import Menu from '@/assets/icons/menu.svg';
+import X from '@/assets/icons/x.svg';
+
+const services = [
+  {
+    name: 'Cobertura de eventos sociales',
+    href: '/cobertura/eventos-sociales',
+  },
+  {
+    name: 'Cobertura de  XV años',
+    href: '/cobertura/xv-anos',
+  },
+  {
+    name: 'Cobertura de bodas',
+    href: '/cobertura/bodas',
+  },
+];
 ---
 
 <header
   class="bg-light-lily flex items-center justify-between px-5 py-[14px] md:px-24 md:py-3"
 >
-  <a href="/"> <Logo class={'text-light-blue '} /></a>
+  <a href="/">
+    <Logo class={'text-light-blue'} />
+    <span class="sr-only">Logo de Nahual Studio</span>
+  </a>
 
-  <label for="bars-button" class="z-20 md:hidden"> Bars</label>
-  <input type="checkbox" id="bars-button" hidden />
+  <label for="bars-button" class="md:hidden">
+    <Menu class={'size-8 text-light-blue'} />
+  </label>
+  <input type="radio" id="bars-button" name="bars" hidden />
 
   <nav
     id="navbar"
-    class="bg-light-blue fixed right-0 top-0 z-10 h-dvh w-[80%] md:static md:h-fit md:w-fit md:bg-transparent"
+    class="bg-light-blue fixed right-0 top-0 z-10 h-dvh w-[80%] drop-shadow-lg md:static md:h-fit md:w-fit md:bg-transparent md:drop-shadow-none"
   >
-    <div class="px-[10px] py-[14px] md:hidden">
-      <a href="/"> <Logo class={'text-light-lily'} /></a>
+    <div
+      class="flex items-center justify-between px-[10px] py-[14px] md:hidden"
+    >
+      <a href="/">
+        <Logo class={'text-light-lily'} />
+        <span class="sr-only">Logo de Nahual Studio</span>
+      </a>
+
+      <label for="cross-button" class="md:hidden">
+        <X class={'size-8 text-light-lily'} />
+      </label>
+      <input type="radio" id="cross-button" name="bars" hidden />
     </div>
 
     <ul
@@ -24,8 +56,25 @@ import Logo from '@/assets/icons/logo.svg';
       <li>
         <a href="/">Inicio</a>
       </li>
-      <li>
-        <a href="/">Servicios</a>
+      <li class="relative">
+        <label class="peer">
+          Servicios
+          <input type="checkbox" id="dropdown" hidden />
+        </label>
+
+        <ul
+          class="bg-light-lily text-light-blue peer-has-checked:block absolute top-[59px] hidden w-52 gap-3 rounded-b-[14px] p-2 drop-shadow-2xl"
+        >
+          {
+            services?.map((service) => (
+              <li class="hover:bg-dark-lily hover:text-light-lily rounded-button p-2">
+                <a href={service.href} class="w-full">
+                  {service.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </li>
       <li>
         <a href="/acerca">Acerca de</a>

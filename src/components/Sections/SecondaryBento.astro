@@ -1,0 +1,79 @@
+---
+import type { ImageType } from '@/types/image';
+import Image from 'astro/components/Image.astro';
+import MainButton from '../MainButton.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  images: ImageType[];
+  buttonLabel: string;
+}
+
+const { title, description, images, buttonLabel } = Astro.props;
+---
+
+<section
+  class="bg-light-lily md:py-17 lg:py-18 lg:px-17 grid gap-16 px-5 py-16 md:justify-center md:px-11 xl:px-24 xl:py-20"
+>
+  <div class="grid gap-4 md:max-w-6xl">
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-[1fr_1.4fr]">
+      <Image
+        src={images[0]?.image}
+        alt={images[0]?.alt}
+        class={'w-full md:h-[486px] object-cover rounded-2xl h-[400px] md:rounded-image'}
+        loading={'lazy'}
+        draggable={false}
+      />
+      <div class="grid gap-4">
+        <Image
+          src={images[1]?.image}
+          alt={images[1]?.alt}
+          class={'w-full md:h-[235px] object-cover rounded-2xl h-48 md:rounded-image'}
+          loading={'lazy'}
+          draggable={false}
+        />
+        <Image
+          src={images[2]?.image}
+          alt={images[2]?.alt}
+          class={'w-full md:h-[235px] object-cover rounded-2xl h-48 md:rounded-image'}
+          loading={'lazy'}
+          draggable={false}
+        />
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-[1.1fr_4fr]">
+      <Image
+        src={images[3]?.image}
+        alt={images[3]?.alt}
+        class={'w-full md:h-[235px] object-cover rounded-2xl h-48 md:rounded-image'}
+        loading={'lazy'}
+        draggable={false}
+      />
+      <Image
+        src={images[4]?.image}
+        alt={images[4]?.alt}
+        class={'w-full md:h-[235px] object-cover rounded-2xl h-48 md:rounded-image'}
+        loading={'lazy'}
+        draggable={false}
+      />
+    </div>
+  </div>
+
+  <div>
+    <div class="mb-8 max-w-xl">
+      <h2
+        class="text-light-blue text-header-2-mobile xl:text-header-2 leading-header font-tanker mb-4"
+      >
+        {title}
+      </h2>
+      <p
+        class="text-light-blue leading-paragraph font-general-sans md:max-w-lg"
+      >
+        {description}
+      </p>
+    </div>
+
+    <MainButton>{buttonLabel}</MainButton>
+  </div>
+</section>
