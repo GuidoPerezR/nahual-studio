@@ -7,14 +7,35 @@ import Paragraph from '@/components/Paragraph.astro';
   class="bg-light-lily flex w-full flex-col items-center justify-center px-5 py-16 lg:pb-0 lg:pt-20"
 >
   <div
-    class="from-light-blue via-light-lily flex max-w-6xl flex-col justify-between rounded-3xl bg-gradient-to-b from-10% via-50% to-transparent to-80% md:flex-row-reverse md:gap-6 md:bg-none"
+    class="from-light-blue via-light-lily flex w-full max-w-6xl flex-col justify-between rounded-3xl bg-gradient-to-b from-10% via-50% to-transparent to-80% md:flex-row-reverse md:gap-6 md:bg-none"
   >
-    <article
-      class="bg-gradient h-[614px] flex-1 p-3 md:rounded-[42px] md:p-6 lg:pb-0"
+    <div
+      class="bg-gradient h-[614px] w-full flex-1 p-3 md:rounded-[42px] md:p-6 lg:pb-0"
       id="photos-container"
     >
-      <img src="./test-image.png" alt="" class="rounded-2xl md:rounded-3xl" />
-    </article>
+      <div class="relative h-56 w-full md:h-96">
+        <img
+          src="./test-image.png"
+          alt=""
+          class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
+        />
+        <img
+          src="./src/assets/images/boda-hero.png"
+          alt=""
+          class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
+        />
+        <img
+          src="./src/assets/images/boda-1.png"
+          alt=""
+          class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
+        />
+        <img
+          src="./src/assets/images/collage.jpg"
+          alt=""
+          class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
+        />
+      </div>
+    </div>
     <div class="flex-1">
       <h1
         id="title"
@@ -33,7 +54,7 @@ import Paragraph from '@/components/Paragraph.astro';
 </section>
 
 <style>
-  @media (min-width: 767px) {
+  @media (min-width: 768px) {
     .bg-gradient {
       background: linear-gradient(
         to bottom,
@@ -57,7 +78,7 @@ import Paragraph from '@/components/Paragraph.astro';
   const text = new SplitText(title, { type: 'words, chars' });
 
   const tl = gsap.timeline();
-
+  // Animacion de inicio
   tl.from(text.chars, {
     duration: 0.4,
     autoAlpha: 0,
@@ -74,4 +95,46 @@ import Paragraph from '@/components/Paragraph.astro';
     },
     '<+=0.5',
   );
+
+  // Animacion de carrosel de imagenes
+
+  const images = photosContainer?.querySelectorAll('img');
+  if (images) {
+    const tl2 = gsap.timeline({
+      repeat: -1,
+      defaults: { ease: 'power2.inOut' },
+    });
+
+    const mm = gsap.matchMedia();
+
+    // Mobile
+    mm.add('(max-width: 768px)', () => {
+      tl2.from(images, {
+        y: 100,
+        opacity: 0,
+        stagger: 7,
+        duration: 1,
+      });
+      tl2.to(images, {
+        opacity: 0,
+        duration: 1,
+        stagger: 1,
+      });
+    });
+    
+    // Desktop
+    mm.add('(min-width: 769px)', () => {
+      tl2.from(images, {
+        y: 250,
+        opacity: 0,
+        stagger: 7,
+        duration: 1,
+      });
+      tl2.to(images, {
+        opacity: 0,
+        duration: 1,
+        stagger: 1,
+      });
+    });
+  }
 </script>
