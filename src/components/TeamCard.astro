@@ -5,10 +5,9 @@ interface Props {
   image: ImageMetadata;
   name: string;
   job: string;
-  loading?: 'lazy' | 'eager';
 }
 
-const { image, name, job, loading = 'lazy' } = Astro.props;
+const { image, name, job } = Astro.props;
 ---
 
 <article class="h-fit">
@@ -16,7 +15,7 @@ const { image, name, job, loading = 'lazy' } = Astro.props;
     src={image}
     alt={`Una foto de ${name}`}
     class={'w-full h-full object-cover select-none rounded-image'}
-    loading={loading}
+    loading={'lazy'}
     draggable={false}
   />
   <h4
