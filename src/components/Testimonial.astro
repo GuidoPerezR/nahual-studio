@@ -1,0 +1,28 @@
+---
+import Quotation from '@/assets/icons/quotation.svg';
+import Paragraph from '@/components/Paragraph.astro';
+
+const { text, image, author, jobTitle } = Astro.props;
+---
+
+<article
+  class="bg-light-lily h-full w-[345px] max-w-[476px] flex-1 rounded-2xl p-6 md:absolute md:inset-0 md:w-full md:rounded-3xl"
+>
+  <div class="flex h-full flex-col justify-between">
+    <Quotation />
+    <Paragraph style="dark" class="mt-4">
+      {text}
+    </Paragraph>
+    <footer class="mt-6 flex items-center gap-3.5 md:mt-20">
+      <img src={image} alt="" class="size-12 rounded-full object-cover" />
+      <div>
+        <p class="text-light-blue font-general-sans font-semibold">
+          {author}
+        </p>
+        <p class="text-light-blue font-general-sans text-[15px]">
+          {jobTitle}
+        </p>
+      </div>
+    </footer>
+  </div>
+</article>
