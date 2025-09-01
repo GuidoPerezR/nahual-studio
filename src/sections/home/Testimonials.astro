@@ -4,52 +4,69 @@ import Quotation from '@/assets/icons/quotation.svg';
 import Rigth from '@/assets/icons/rigth.svg';
 import Paragraph from '@/components/Paragraph.astro';
 import SectionTitle from '@/components/SectionTitle.astro';
+import Testimonial from '@/components/Testimonial.astro';
+
+const TESTIMONIALS = [
+  {
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio optio dolorum culpa sint iure! Voluptatum vero, dolor cumque maiores consequatur quod beatae modi placeat corrupti autem quisquam aliquid quaerat sunt.',
+    image: './test-image.png',
+    author: 'Javier Zavala',
+    jobTitle: 'Fiesta de XV anos',
+  },
+  {
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio optio dolorum culpa sint iure! Voluptatum vero, dolor cumque maiores consequatur quod',
+    image: './test-image.png',
+    author: 'Dick Head Zavala',
+    jobTitle: 'Fiesta de XV anos',
+  },
+  {
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio optio dolorum culpa sint iure! Voluptatum vero, dolor cumque maiores consequatur quod beatae modi placeat corrupti autem quisquam aliquid quaerat sunt.',
+    image: './test-image.png',
+    author: 'Puta Gutierrez Zavala',
+    jobTitle: 'Fiesta de XV anos',
+  },
+];
 ---
 
-<section class="bg-light-blue w-full px-5 py-16 lg:py-20">
+<section class="bg-light-blue section w-full px-5 py-16 lg:py-20">
   <div
-    class="mx-auto flex max-w-6xl flex-col items-center justify-center md:flex-row-reverse md:gap-6"
+    class="mx-auto max-w-6xl md:flex md:flex-row-reverse md:items-center md:justify-center md:gap-6"
   >
-    <div class="flex items-center gap-2 lg:gap-4">
-      <div class="text-light-lily hidden cursor-pointer md:block">
+    <div class="anim-element flex flex-1 items-center gap-2 lg:gap-4">
+      <div
+        id="prev-btn"
+        class="text-light-lily hover:text-carnation hidden cursor-pointer transition-colors duration-200 md:block"
+      >
         <Left class="size-8" />
       </div>
-      <article
-        class="bg-light-lily max-w-[476px] flex-1 rounded-2xl p-6 md:rounded-3xl"
+      <ul
+        id="testimonial-list"
+        class="no-scrollbar relative flex h-[348px] w-full items-center gap-6 overflow-x-auto md:overflow-hidden"
       >
-        <Quotation />
-
-        <Paragraph style="dark" class="mt-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio optio
-          dolorum culpa sint iure! Voluptatum vero, dolor cumque maiores
-          consequatur quod beatae modi placeat corrupti autem quisquam aliquid
-          quaerat sunt.
-        </Paragraph>
-        <footer class="mt-6 flex items-center gap-3.5 md:mt-20">
-          <img
-            src="./test-image.png"
-            alt=""
-            class="size-12 rounded-full object-cover"
-          />
-          <div>
-            <p class="text-light-blue font-general-sans font-semibold">
-              Javier Zavala
-            </p>
-            <p class="text-light-blue font-general-sans text-[15px]">
-              Fiesta de XV anos
-            </p>
-          </div>
-        </footer>
-      </article>
-      <div class="text-light-lily hidden size-8 cursor-pointer md:block">
+        {
+          TESTIMONIALS.map((testimonial) => (
+            <li class="testimonial h-full w-full md:opacity-0">
+              <Testimonial {...testimonial} />
+            </li>
+          ))
+        }
+      </ul>
+      <div
+        id="next-btn"
+        class="text-light-lily hover:text-carnation hidden size-8 cursor-pointer transition-colors duration-200 md:block"
+      >
         <Rigth class="size-8" />
       </div>
     </div>
     <div class="flex-1">
-      <SectionTitle style="light" mobile="true" class="mt-16 md:mt-0">
+      <SectionTitle
+        style="light"
+        mobile="true"
+        class="anim-title mt-16 md:mt-0"
+      >
         Testimonios
       </SectionTitle>
-      <Paragraph style="light" class="mt-4 max-w-xs">
+      <Paragraph style="light" class="anim-element mt-4 max-w-xs">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
         commodi illo placeat necessitatibus consectetur ducimus voluptates
         dolorum vel
@@ -57,3 +74,53 @@ import SectionTitle from '@/components/SectionTitle.astro';
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  const mm = gsap.matchMedia();
+
+  mm.add('(min-width: 768px)', () => {
+    const testimonials = document.querySelectorAll('.testimonial');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    let currentIndex = 0;
+
+    // gsap.set(testimonials, {
+    //   autoAlpha: 0,
+    //   position: 'absolute',
+    //   top: 0,
+    //   left: 0,
+    // });
+    gsap.set(testimonials[currentIndex], { autoAlpha: 1 });
+
+    function showTestimonial(newIndex: number) {
+      if (newIndex === currentIndex) return;
+
+      const current = testimonials[currentIndex];
+      const next = testimonials[newIndex];
+
+      const tl = gsap.timeline();
+
+      tl.to(current, { autoAlpha: 0, duration: 0.5 }).to(
+        next,
+        { autoAlpha: 1, duration: 0.5 },
+        '<+=0.3',
+      );
+
+      currentIndex = newIndex;
+    }
+
+    nextBtn?.addEventListener('click', () => {
+      const newIndex = (currentIndex + 1) % testimonials.length;
+      showTestimonial(newIndex);
+    });
+
+    prevBtn?.addEventListener('click', () => {
+      const newIndex =
+        (currentIndex - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(newIndex);
+    });
+  });
+</script>

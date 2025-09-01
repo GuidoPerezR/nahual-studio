@@ -4,13 +4,13 @@ import Paragraph from '@/components/Paragraph.astro';
 import SectionTitle from '@/components/SectionTitle.astro';
 ---
 
-<section class="bg-light-lily w-full px-5 py-16 lg:py-20">
+<section class="bg-light-lily section w-full px-5 py-16 lg:py-20">
   <div
     class="mx-auto flex max-w-6xl flex-col items-center justify-center md:flex-row-reverse md:gap-6 lg:gap-12"
   >
-    <div class="flex-1">
+    <div class="anim-element flex-1">
       <header>
-        <SectionTitle style="dark" mobile="true">
+        <SectionTitle style="dark" mobile="true" class="anim-title">
           Tu esencia hecha imagen
         </SectionTitle>
       </header>
@@ -26,7 +26,7 @@ import SectionTitle from '@/components/SectionTitle.astro';
       </Paragraph>
       <MainButton class="mt-8">¡Contactanos!</MainButton>
     </div>
-    <div class="flex-1">
+    <div class="anim-element flex-1">
       <img
         src="./test-image.png"
         alt=""

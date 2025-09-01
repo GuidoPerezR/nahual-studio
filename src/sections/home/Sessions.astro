@@ -23,10 +23,10 @@ const SESSIONS = [
 ];
 ---
 
-<section class="bg-light-blue w-full px-5 py-16 lg:py-20">
+<section class="bg-light-blue section w-full px-5 py-16 lg:py-20">
   <div class="mx-auto max-w-6xl">
     <ul
-      class="no-scrollbar mx-auto flex w-full gap-6 overflow-x-auto md:overflow-hidden"
+      class="no-scrollbar anim-element mx-auto flex w-full touch-pan-x gap-6 overflow-x-auto md:overflow-hidden"
     >
       {
         SESSIONS.map((session) => (
@@ -36,10 +36,10 @@ const SESSIONS = [
         ))
       }
     </ul>
-    <SectionTitle style="light" mobile="true" class="mt-16">
+    <SectionTitle style="light" mobile="true" class="anim-title mt-16">
       Sesiones y fotografías
     </SectionTitle>
-    <Paragraph style="light" class="mt-4 max-w-lg">
+    <Paragraph style="light" class="anim-element mt-4 max-w-lg">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni minus
       eaque nostrum. Laboriosam, velit ducimus perspiciatis saepe nisi quaerat
       quod dignissimos harum recusandae reiciendis numquam voluptates veniam
@@ -48,9 +48,3 @@ const SESSIONS = [
     <MainButton class="mt-8">¡Agenda ahora!</MainButton>
   </div>
 </section>
-
-<style>
-  .no-scrollbar {
-    scrollbar-width: none;
-  }
-</style>
