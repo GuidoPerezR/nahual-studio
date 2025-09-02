@@ -1,6 +1,46 @@
 ---
+import HeroImage from '@/components/HeroImage.astro';
 import MainButton from '@/components/MainButton.astro';
 import Paragraph from '@/components/Paragraph.astro';
+
+const IMAGES = [
+  {
+    src: '/images/home/hero/hero-img1.webp',
+    alt: 'Hero Image 1',
+  },
+  {
+    src: '/images/home/hero/hero-img2.webp',
+    alt: 'Hero Image 2',
+  },
+  {
+    src: '/images/home/hero/hero-img3.webp',
+    alt: 'Hero Image 3',
+  },
+  {
+    src: '/images/home/hero/hero-img4.webp',
+    alt: 'Hero Image 4',
+  },
+  {
+    src: '/images/home/hero/hero-img5.webp',
+    alt: 'Hero Image 5',
+  },
+  {
+    src: '/images/home/hero/hero-img6.webp',
+    alt: 'Hero Image 6',
+  },
+  {
+    src: '/images/home/hero/hero-img7.webp',
+    alt: 'Hero Image 7',
+  },
+  {
+    src: '/images/home/hero/hero-img8.webp',
+    alt: 'Hero Image 8',
+  },
+  {
+    src: '/images/home/hero/hero-img9.webp',
+    alt: 'Hero Image 9',
+  },
+];
 ---
 
 <section
@@ -14,26 +54,11 @@ import Paragraph from '@/components/Paragraph.astro';
       id="photos-container"
     >
       <div class="relative h-56 w-full md:h-96">
-        <img
-          src="./test-image.png"
-          alt=""
-          class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
-        />
-        <img
-          src="./src/assets/images/boda-hero.png"
-          alt=""
-          class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
-        />
-        <img
-          src="./src/assets/images/boda-1.png"
-          alt=""
-          class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
-        />
-        <img
-          src="./src/assets/images/collage.jpg"
-          alt=""
-          class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
-        />
+        {
+          IMAGES.map((image, index) => (
+            <HeroImage {...image} lazy={index !== 0} />
+          ))
+        }
       </div>
     </div>
     <div class="flex-1">
