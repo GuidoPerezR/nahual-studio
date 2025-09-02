@@ -12,21 +12,24 @@ const { title, image, link } = service;
     },
   ]}
 >
-  <a href={link}>
-    <img
-      src={image}
-      alt={`Cobertura de ${title}`}
-      class:list={[
-        'w-full rounded-2xl object-cover md:rounded-3xl',
-        {
-          'h-80 md:h-[419px]': size === 'large',
-          'h-64 md:h-[329px]': size === 'medium',
-        },
-      ]}
-    />
+  <a href={link} class="">
+    <div class="overflow-hidden rounded-2xl md:rounded-3xl">
+      <img
+        src={image}
+        loading="lazy"
+        alt={`Cobertura de ${title}`}
+        class:list={[
+          'w-full object-cover transition-transform duration-300 group-hover:scale-110',
+          {
+            'h-80 md:h-[419px]': size === 'large',
+            'h-64 md:h-[329px]': size === 'medium',
+          },
+        ]}
+      />
+    </div>
     <p
       class:list={[
-        'font-tanker text-header-4-mobile leading-header lg:text-header-4 max-w-3xs mt-2 transition-colors duration-200 md:mt-6',
+        'font-tanker text-header-4-mobile leading-header lg:text-header-4 max-w-3xs mt-4 transition-colors duration-200 md:mt-6',
         {
           'text-light-blue group-hover:text-light-lily': style === 'dark',
           'text-light-lily group-hover:text-light-blue': style === 'light',

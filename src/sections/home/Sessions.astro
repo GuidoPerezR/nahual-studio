@@ -7,17 +7,17 @@ import ServiceCard from '@/components/ServiceCard.astro';
 const SESSIONS = [
   {
     title: 'Sesion de cumpleaños',
-    image: './test-image.png',
+    image: '/images/home/sessions/session-img1.webp',
     link: '#',
   },
   {
     title: 'Fotografía interior',
-    image: './test-image.png',
+    image: '/images/home/sessions/session-img2.webp',
     link: '#',
   },
   {
     title: 'Fotografía Gastronómica',
-    image: './test-image.png',
+    image: '/images/home/sessions/session-img3.webp',
     link: '#',
   },
 ];
@@ -30,7 +30,7 @@ const SESSIONS = [
     >
       {
         SESSIONS.map((session) => (
-          <li>
+          <li class="w-full">
             <ServiceCard service={session} style="light" size="large" />
           </li>
         ))

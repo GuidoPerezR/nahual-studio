@@ -6,17 +6,17 @@ import ServiceCard from '@/components/ServiceCard.astro';
 const EVENTS = [
   {
     title: 'Eventos sociales',
-    image: './test-image.png',
+    image: '/images/home/events/event-img1.webp',
     link: '#',
   },
   {
     title: 'XV Años',
-    image: './test-image.png',
+    image: '/images/home/events/event-img2.webp',
     link: '#',
   },
   {
     title: 'Bodas',
-    image: './test-image.png',
+    image: '/images/home/events/event-img3.webp',
     link: '#',
   },
 ];
@@ -42,7 +42,7 @@ const EVENTS = [
     >
       {
         EVENTS.map((event) => (
-          <li>
+          <li class="w-full">
             <ServiceCard service={event} style="dark" size="medium" />
           </li>
         ))
