@@ -72,69 +72,74 @@ import Paragraph from '@/components/Paragraph.astro';
 
   gsap.registerPlugin(SplitText);
 
-  const title = document.querySelector('#title');
-  const photosContainer = document.querySelector('#photos-container');
+  function initHeroAnimation() {
+    const title = document.querySelector('#title');
+    const photosContainer = document.querySelector('#photos-container');
 
-  const text = new SplitText(title, { type: 'words, chars' });
+    const text = new SplitText(title, { type: 'words, chars' });
 
-  const tl = gsap.timeline();
-  // Animacion de inicio
-  tl.from(text.chars, {
-    duration: 0.4,
-    autoAlpha: 0,
-    y: 50,
-    x: -10,
-    stagger: 0.04,
-  }).from(
-    photosContainer,
-    {
-      opacity: 0,
+    const tl = gsap.timeline();
+    // Animacion de inicio
+    tl.from(text.chars, {
       duration: 0.4,
-      y: 40,
-      ease: 'power2.out',
-    },
-    '<+=0.5',
-  );
-
-  // Animacion de carrosel de imagenes
-
-  const images = photosContainer?.querySelectorAll('img');
-  if (images) {
-    const tl2 = gsap.timeline({
-      repeat: -1,
-      defaults: { ease: 'power2.inOut' },
-    });
-
-    const mm = gsap.matchMedia();
-
-    // Mobile
-    mm.add('(max-width: 768px)', () => {
-      tl2.from(images, {
-        y: 100,
+      autoAlpha: 0,
+      y: 50,
+      x: -10,
+      stagger: 0.04,
+    }).from(
+      photosContainer,
+      {
         opacity: 0,
-        stagger: 7,
-        duration: 1,
+        duration: 0.4,
+        y: 40,
+        ease: 'power2.out',
+      },
+      '<+=0.5',
+    );
+
+    // Animacion de carrosel de imagenes
+
+    const images = photosContainer?.querySelectorAll('img');
+    if (images) {
+      const tl2 = gsap.timeline({
+        repeat: -1,
+        defaults: { ease: 'power2.inOut' },
       });
-      tl2.to(images, {
-        opacity: 0,
-        duration: 1,
-        stagger: 1,
+
+      const mm = gsap.matchMedia();
+
+      // Mobile
+      mm.add('(max-width: 768px)', () => {
+        tl2.from(images, {
+          y: 100,
+          opacity: 0,
+          stagger: 7,
+          duration: 1,
+        });
+        tl2.to(images, {
+          opacity: 0,
+          duration: 1,
+          stagger: 1,
+        });
       });
-    });
-    
-    // Desktop
-    mm.add('(min-width: 769px)', () => {
-      tl2.from(images, {
-        y: 250,
-        opacity: 0,
-        stagger: 7,
-        duration: 1,
+
+      // Desktop
+      mm.add('(min-width: 769px)', () => {
+        tl2.from(images, {
+          y: 250,
+          opacity: 0,
+          stagger: 7,
+          duration: 1,
+        });
+        tl2.to(images, {
+          opacity: 0,
+          duration: 1,
+          stagger: 1,
+        });
       });
-      tl2.to(images, {
-        opacity: 0,
-        duration: 1,
-        stagger: 1,
-      });
-    });
+    }
   }
+
+  initHeroAnimation();
+  document.addEventListener('astro:after-swap', () => initHeroAnimation());
 </script>

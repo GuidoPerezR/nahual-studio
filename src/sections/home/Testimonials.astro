@@ -1,7 +1,6 @@
 ---
 import Left from '@/assets/icons/left.svg';
-import Quotation from '@/assets/icons/quotation.svg';
-import Rigth from '@/assets/icons/rigth.svg';
+import Right from '@/assets/icons/right.svg';
 import Paragraph from '@/components/Paragraph.astro';
 import SectionTitle from '@/components/SectionTitle.astro';
 import Testimonial from '@/components/Testimonial.astro';
@@ -33,12 +32,12 @@ const TESTIMONIALS = [
     class="mx-auto max-w-6xl md:flex md:flex-row-reverse md:items-center md:justify-center md:gap-6"
   >
     <div class="anim-element flex flex-1 items-center gap-2 lg:gap-4">
-      <div
+      <button
         id="prev-btn"
-        class="text-light-lily hover:text-carnation hidden cursor-pointer transition-colors duration-200 md:block"
+        class="text-light-lily hover:text-carnation hidden cursor-pointer transition-all duration-200 md:block"
       >
         <Left class="size-8" />
-      </div>
+      </button>
       <ul
         id="testimonial-list"
         class="no-scrollbar relative flex h-[348px] w-full items-center gap-6 overflow-x-auto md:overflow-hidden"
@@ -51,12 +50,12 @@ const TESTIMONIALS = [
           ))
         }
       </ul>
-      <div
+      <button
         id="next-btn"
-        class="text-light-lily hover:text-carnation hidden size-8 cursor-pointer transition-colors duration-200 md:block"
+        class="text-light-lily hover:text-carnation hidden size-8 cursor-pointer transition-all duration-200 md:block"
       >
-        <Rigth class="size-8" />
-      </div>
+        <Right class="size-8" />
+      </button>
     </div>
     <div class="flex-1">
       <SectionTitle
@@ -75,52 +74,79 @@ const TESTIMONIALS = [
   </div>
 </section>
 
+<style>
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+</style>
+
 <script>
   import { gsap } from 'gsap';
 
-  const mm = gsap.matchMedia();
+  function initTestimonialAnimation() {
+    const mm = gsap.matchMedia();
 
-  mm.add('(min-width: 768px)', () => {
-    const testimonials = document.querySelectorAll('.testimonial');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+    mm.add('(min-width: 768px)', () => {
+      const testimonials = document.querySelectorAll('.testimonial');
+      const prevBtn = document.querySelector('#prev-btn') as HTMLButtonElement;
+      const nextBtn = document.querySelector('#next-btn') as HTMLButtonElement;
 
-    let currentIndex = 0;
+      let currentIndex = 0;
 
-    // gsap.set(testimonials, {
-    //   autoAlpha: 0,
-    //   position: 'absolute',
-    //   top: 0,
-    //   left: 0,
-    // });
-    gsap.set(testimonials[currentIndex], { autoAlpha: 1 });
+      gsap.set(testimonials[currentIndex], { autoAlpha: 1 });
 
-    function showTestimonial(newIndex: number) {
-      if (newIndex === currentIndex) return;
+      function disabledButton(button: HTMLButtonElement) {
+        button.setAttribute('disabled', 'true');
+        button.classList.add('disabled');
+      }
 
-      const current = testimonials[currentIndex];
-      const next = testimonials[newIndex];
+      function enableButton(button: HTMLButtonElement) {
+        button.removeAttribute('disabled');
+        button.classList.remove('disabled');
+      }
 
-      const tl = gsap.timeline();
+      function showTestimonial(newIndex: number) {
+        if (newIndex === currentIndex) return;
 
-      tl.to(current, { autoAlpha: 0, duration: 0.5 }).to(
-        next,
-        { autoAlpha: 1, duration: 0.5 },
-        '<+=0.3',
-      );
+        const current = testimonials[currentIndex];
+        const next = testimonials[newIndex];
 
-      currentIndex = newIndex;
-    }
+        const tl = gsap.timeline({
+          onStart: () => {
+            disabledButton(prevBtn);
+            disabledButton(nextBtn);
+          },
+          onComplete: () => {
+            enableButton(nextBtn!);
+            enableButton(prevBtn!);
+          },
+        });
 
-    nextBtn?.addEventListener('click', () => {
-      const newIndex = (currentIndex + 1) % testimonials.length;
-      showTestimonial(newIndex);
+        tl.to(current, { autoAlpha: 0, duration: 0.5 }).to(
+          next,
+          { autoAlpha: 1, duration: 0.5 },
+          '<+=0.3',
+        );
+
+        currentIndex = newIndex;
+      }
+
+      nextBtn?.addEventListener('click', () => {
+        const newIndex = (currentIndex + 1) % testimonials.length;
+        showTestimonial(newIndex);
+      });
+
+      prevBtn?.addEventListener('click', () => {
+        const newIndex =
+          (currentIndex - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(newIndex);
+      });
     });
+  }
 
-    prevBtn?.addEventListener('click', () => {
-      const newIndex =
-        (currentIndex - 1 + testimonials.length) % testimonials.length;
-      showTestimonial(newIndex);
-    });
-  });
+  initTestimonialAnimation();
+  document.addEventListener('astro:after-swap', () =>
+    initTestimonialAnimation(),
+  );
 </script>
