@@ -31,7 +31,9 @@ const SOCIALS = [
 >
   <div class="mx-auto flex max-w-6xl flex-col gap-8">
     <div class="flex items-center justify-between">
-      <Logo class="h-16" />
+      <a href="/">
+        <Logo class="h-16" />
+      </a>
       <div class="flex gap-6">
         {
           SOCIALS.map(({ url, icon: Icon }) => (
@@ -69,7 +71,9 @@ const SOCIALS = [
           </header>
           <ul class="mt-1.5 flex flex-col gap-2">
             <li>
-              <FooterLink url="#"> Sesión de cumpleaños </FooterLink>
+              <FooterLink url="/sesion/cumpleaños">
+                Sesión de cumpleaños
+              </FooterLink>
             </li>
           </ul>
         </div>
@@ -101,10 +105,18 @@ const SOCIALS = [
       </div>
       <div class="mt-8 flex flex-1 gap-6 md:mt-0">
         <div class="flex-1">
-          <a href="" class="font-semibold">Acerca de </a>
+          <a
+            href="/acerca"
+            class="hover:text-light-blue font-semibold transition-colors duration-200"
+            >Acerca de
+          </a>
         </div>
         <div class="flex-1">
-          <a href="" class="font-semibold">Contacto</a>
+          <a
+            href=""
+            class="hover:text-light-blue font-semibold transition-colors duration-200"
+            >Contacto</a
+          >
         </div>
       </div>
     </div>
