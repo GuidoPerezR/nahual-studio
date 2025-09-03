@@ -4,13 +4,13 @@ import Paragraph from '@/components/Paragraph.astro';
 import SectionTitle from '@/components/SectionTitle.astro';
 ---
 
-<section class="bg-light-lily w-full px-5 py-16 lg:py-20">
+<section class="bg-light-lily section w-full px-5 py-16 lg:py-20">
   <div
     class="mx-auto flex max-w-6xl flex-col items-center justify-center md:flex-row-reverse md:gap-6 lg:gap-12"
   >
-    <div class="flex-1">
+    <div class="anim-element flex-1">
       <header>
-        <SectionTitle style="dark" mobile="true">
+        <SectionTitle style="dark" mobile="true" class="anim-title">
           Tu esencia hecha imagen
         </SectionTitle>
       </header>
@@ -24,12 +24,17 @@ import SectionTitle from '@/components/SectionTitle.astro';
         Creemos que una buena imagen no solo comunica, sino que deja huella, y
         por eso trabajamos cada detalle con intención, creatividad y estrategia.
       </Paragraph>
-      <MainButton class="mt-8">¡Contactanos!</MainButton>
+      <MainButton
+        class="mt-8"
+        url="https://wa.me/529624810574?text=¡Hola,%20quiero%20más%20información!"
+        >¡Contactanos!</MainButton
+      >
     </div>
-    <div class="flex-1">
+    <div class="anim-element flex-1">
       <img
-        src="./test-image.png"
-        alt=""
+        src="/images/home/close/close-img1.webp"
+        loading="lazy"
+        alt="Image about the team of Nahual Studio"
         class="mt-16 rounded-2xl md:mt-0 md:rounded-3xl"
       />
     </div>

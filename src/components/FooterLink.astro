@@ -1,0 +1,13 @@
+---
+const { class: className, url } = Astro.props;
+---
+
+<a
+  href={url}
+  class:list={[
+    'hover:text-light-blue text-[15px] transition-colors duration-200',
+    className,
+  ]}
+>
+  <slot />
+</a>

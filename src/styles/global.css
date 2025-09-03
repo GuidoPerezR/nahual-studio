@@ -8,6 +8,7 @@
   --color-light-lily: #e6f7fb;
   --color-dark-lily: #3eaad2;
   --color-carnation: #ff6b6b;
+  --color-dark-carnation: #f83b3b;
   --color-slate-gray: #74838d;
   --color-athens-gray: #f2f4f8;
 
@@ -30,3 +31,19 @@
   --radius-button: 6px;
 }
 
+.fade {
+  animation: fade-in 1.5s ease-in-out;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

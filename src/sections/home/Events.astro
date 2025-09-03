@@ -6,41 +6,41 @@ import ServiceCard from '@/components/ServiceCard.astro';
 const EVENTS = [
   {
     title: 'Eventos sociales',
-    image: './test-image.png',
-    link: '#',
+    image: '/images/home/events/event-img1.webp',
+    link: '/cobertura/eventos-sociales',
   },
   {
     title: 'XV Años',
-    image: './test-image.png',
-    link: '#',
+    image: '/images/home/events/event-img2.webp',
+    link: '/cobertura/xv-años',
   },
   {
     title: 'Bodas',
-    image: './test-image.png',
-    link: '#',
+    image: '/images/home/events/event-img3.webp',
+    link: '/cobertura/bodas',
   },
 ];
 ---
 
-<section class="bg-light-lily w-full overflow-hidden px-5 py-16 lg:py-20">
+<section
+  class="bg-light-lily section w-full overflow-hidden px-5 py-16 lg:py-20"
+>
   <div class="mx-auto max-w-6xl">
     <header>
-      <SectionTitle style="dark" mobile="true">
+      <SectionTitle style="dark" mobile="true" class="anim-title">
         Cobertura de evento
       </SectionTitle>
     </header>
-    <Paragraph style="dark" class="mt-4 max-w-xl">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente error,
-      eligendi illo praesentium alias voluptatibus dignissimos at repellendus
-      repellat amet, animi tempore, tempora aperiam facilis laborum omnis hic
-      natus numquam?
+    <Paragraph style="dark" class="anim-element mt-4 max-w-xl">
+      Capturamos tu evento con estilo, emoción y calidad. Hacemos que cada
+      instante se convierta en una historia visual que trasciende.
     </Paragraph>
     <ul
-      class="no-scrollbar mx-auto mt-16 flex w-full gap-6 overflow-x-auto md:overflow-hidden"
+      class="no-scrollbar anim-element mx-auto mt-16 flex w-full touch-pan-x gap-6 overflow-x-auto md:overflow-hidden"
     >
       {
         EVENTS.map((event) => (
-          <li>
+          <li class="w-full">
             <ServiceCard service={event} style="dark" size="medium" />
           </li>
         ))
@@ -48,9 +48,3 @@ const EVENTS = [
     </ul>
   </div>
 </section>
-
-<style>
-  .no-scrollbar {
-    scrollbar-width: none;
-  }
-</style>

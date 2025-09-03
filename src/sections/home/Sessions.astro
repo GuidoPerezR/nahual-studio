@@ -7,50 +7,48 @@ import ServiceCard from '@/components/ServiceCard.astro';
 const SESSIONS = [
   {
     title: 'Sesion de cumpleaños',
-    image: './test-image.png',
-    link: '#',
+    image: '/images/home/sessions/session-img1.webp',
+    link: '/sesion/cumpleaños',
   },
   {
     title: 'Fotografía interior',
-    image: './test-image.png',
-    link: '#',
+    image: '/images/home/sessions/session-img2.webp',
+    link: '/sesion/fotografia-interior',
   },
   {
     title: 'Fotografía Gastronómica',
-    image: './test-image.png',
-    link: '#',
+    image: '/images/home/sessions/session-img3.webp',
+    link: '/sesion/fotografia-gastronomica',
   },
 ];
 ---
 
-<section class="bg-light-blue w-full px-5 py-16 lg:py-20">
+<section class="bg-light-blue section w-full px-5 py-16 lg:py-20">
   <div class="mx-auto max-w-6xl">
     <ul
-      class="no-scrollbar mx-auto flex w-full gap-6 overflow-x-auto md:overflow-hidden"
+      class="no-scrollbar anim-element mx-auto flex w-full touch-pan-x gap-6 overflow-x-auto md:overflow-hidden"
     >
       {
         SESSIONS.map((session) => (
-          <li>
+          <li class="w-full">
             <ServiceCard service={session} style="light" size="large" />
           </li>
         ))
       }
     </ul>
-    <SectionTitle style="light" mobile="true" class="mt-16">
+    <SectionTitle style="light" mobile="true" class="anim-title mt-16">
       Sesiones y fotografías
     </SectionTitle>
-    <Paragraph style="light" class="mt-4 max-w-lg">
+    <Paragraph style="light" class="anim-element mt-4 max-w-lg">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni minus
       eaque nostrum. Laboriosam, velit ducimus perspiciatis saepe nisi quaerat
       quod dignissimos harum recusandae reiciendis numquam voluptates veniam
       placeat debitis est!
     </Paragraph>
-    <MainButton class="mt-8">¡Agenda ahora!</MainButton>
+    <MainButton
+      class="mt-8"
+      url="https://wa.me/529624810574?text=¡Hola,%20quiero%20más%20información!"
+      >¡Agenda ahora!</MainButton
+    >
   </div>
 </section>
-
-<style>
-  .no-scrollbar {
-    scrollbar-width: none;
-  }
-</style>

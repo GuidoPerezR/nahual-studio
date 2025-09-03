@@ -1,0 +1,10 @@
+---
+const { src, alt, lazy } = Astro.props;
+---
+
+<img
+  src={src}
+  alt={alt}
+  loading={lazy ? 'lazy' : 'eager'}
+  class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
+/>
