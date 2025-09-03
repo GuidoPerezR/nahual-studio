@@ -1,6 +1,46 @@
 ---
+import HeroImage from '@/components/HeroImage.astro';
 import MainButton from '@/components/MainButton.astro';
 import Paragraph from '@/components/Paragraph.astro';
+
+const IMAGES = [
+  {
+    src: '/images/home/hero/hero-img1.webp',
+    alt: 'Hero Image 1',
+  },
+  {
+    src: '/images/home/hero/hero-img2.webp',
+    alt: 'Hero Image 2',
+  },
+  {
+    src: '/images/home/hero/hero-img3.webp',
+    alt: 'Hero Image 3',
+  },
+  {
+    src: '/images/home/hero/hero-img4.webp',
+    alt: 'Hero Image 4',
+  },
+  {
+    src: '/images/home/hero/hero-img5.webp',
+    alt: 'Hero Image 5',
+  },
+  {
+    src: '/images/home/hero/hero-img6.webp',
+    alt: 'Hero Image 6',
+  },
+  {
+    src: '/images/home/hero/hero-img7.webp',
+    alt: 'Hero Image 7',
+  },
+  {
+    src: '/images/home/hero/hero-img8.webp',
+    alt: 'Hero Image 8',
+  },
+  {
+    src: '/images/home/hero/hero-img9.webp',
+    alt: 'Hero Image 9',
+  },
+];
 ---
 
 <section
@@ -14,26 +54,11 @@ import Paragraph from '@/components/Paragraph.astro';
       id="photos-container"
     >
       <div class="relative h-56 w-full md:h-96">
-        <img
-          src="./test-image.png"
-          alt=""
-          class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
-        />
-        <img
-          src="./src/assets/images/boda-hero.png"
-          alt=""
-          class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
-        />
-        <img
-          src="./src/assets/images/boda-1.png"
-          alt=""
-          class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
-        />
-        <img
-          src="./src/assets/images/collage.jpg"
-          alt=""
-          class="absolute inset-0 h-full w-full rounded-2xl object-cover md:rounded-3xl"
-        />
+        {
+          IMAGES.map((image, index) => (
+            <HeroImage {...image} lazy={index !== 0} />
+          ))
+        }
       </div>
     </div>
     <div class="flex-1">
@@ -48,7 +73,11 @@ import Paragraph from '@/components/Paragraph.astro';
         fuga ad. Non esse doloremque, explicabo dolore iusto cumque odio vero
         sed voluptatibus. Sequi modi natus, quam officia ratione recusandae.
       </Paragraph>
-      <MainButton class="fade mt-8 delay-300">¡Agenda ahora!</MainButton>
+      <MainButton
+        class="fade mt-8 delay-300"
+        url="https://wa.me/529624810574?text=¡Hola,%20quiero%20m%C3%A1s%20informaci%C3%B3n!"
+        >¡Agenda ahora!</MainButton
+      >
     </div>
   </div>
 </section>
@@ -72,69 +101,74 @@ import Paragraph from '@/components/Paragraph.astro';
 
   gsap.registerPlugin(SplitText);
 
-  const title = document.querySelector('#title');
-  const photosContainer = document.querySelector('#photos-container');
+  function initHeroAnimation() {
+    const title = document.querySelector('#title');
+    const photosContainer = document.querySelector('#photos-container');
 
-  const text = new SplitText(title, { type: 'words, chars' });
+    const text = new SplitText(title, { type: 'words, chars' });
 
-  const tl = gsap.timeline();
-  // Animacion de inicio
-  tl.from(text.chars, {
-    duration: 0.4,
-    autoAlpha: 0,
-    y: 50,
-    x: -10,
-    stagger: 0.04,
-  }).from(
-    photosContainer,
-    {
-      opacity: 0,
+    const tl = gsap.timeline();
+    // Animacion de inicio
+    tl.from(text.chars, {
       duration: 0.4,
-      y: 40,
-      ease: 'power2.out',
-    },
-    '<+=0.5',
-  );
-
-  // Animacion de carrosel de imagenes
-
-  const images = photosContainer?.querySelectorAll('img');
-  if (images) {
-    const tl2 = gsap.timeline({
-      repeat: -1,
-      defaults: { ease: 'power2.inOut' },
-    });
-
-    const mm = gsap.matchMedia();
-
-    // Mobile
-    mm.add('(max-width: 768px)', () => {
-      tl2.from(images, {
-        y: 100,
+      autoAlpha: 0,
+      y: 50,
+      x: -10,
+      stagger: 0.04,
+    }).from(
+      photosContainer,
+      {
         opacity: 0,
-        stagger: 7,
-        duration: 1,
+        duration: 0.4,
+        y: 40,
+        ease: 'power2.out',
+      },
+      '<+=0.5',
+    );
+
+    // Animacion de carrosel de imagenes
+
+    const images = photosContainer?.querySelectorAll('img');
+    if (images) {
+      const tl2 = gsap.timeline({
+        repeat: -1,
+        defaults: { ease: 'power2.inOut' },
       });
-      tl2.to(images, {
-        opacity: 0,
-        duration: 1,
-        stagger: 1,
+
+      const mm = gsap.matchMedia();
+
+      // Mobile
+      mm.add('(max-width: 768px)', () => {
+        tl2.from(images, {
+          y: 100,
+          opacity: 0,
+          stagger: 7,
+          duration: 1,
+        });
+        tl2.to(images, {
+          opacity: 0,
+          duration: 1,
+          stagger: 1,
+        });
       });
-    });
-    
-    // Desktop
-    mm.add('(min-width: 769px)', () => {
-      tl2.from(images, {
-        y: 250,
-        opacity: 0,
-        stagger: 7,
-        duration: 1,
+
+      // Desktop
+      mm.add('(min-width: 769px)', () => {
+        tl2.from(images, {
+          y: 250,
+          opacity: 0,
+          stagger: 7,
+          duration: 1,
+        });
+        tl2.to(images, {
+          opacity: 0,
+          duration: 1,
+          stagger: 1,
+        });
       });
-      tl2.to(images, {
-        opacity: 0,
-        duration: 1,
-        stagger: 1,
-      });
-    });
+    }
   }
+
+  initHeroAnimation();
+  document.addEventListener('astro:after-swap', () => initHeroAnimation());
 </script>

@@ -1,9 +1,11 @@
 ---
-const { class: className } = Astro.props;
+const { class: className, url } = Astro.props;
 ---
 
 <a
-  href="#"
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
   class:list={[
     'bg-carnation font-general-sans flex w-40 items-center justify-center rounded-md py-2 font-semibold text-white',
     className,
