@@ -16,7 +16,7 @@ const { title, description, image } = Astro.props;
 >
   <div class="mb-16 md:mb-0 xl:max-w-sm">
     <h2
-      class="text-light-lily text-header-2-mobile xl:text-header-2 leading-header font-tanker mb-4"
+      class="text-light-lily text-header-2-mobile xl:text-header-2 leading-header font-tanker anim-title mb-4"
     >
       {title}
     </h2>
@@ -28,6 +28,8 @@ const { title, description, image } = Astro.props;
     src={image?.image}
     alt={image?.alt}
     class={'w-full md:max-w-lg lg:max-w-xl xl:max-w-2xl object-cover rounded-2xl md:rounded-image select-none'}
+    width={586}
+    height={409}
     loading={'lazy'}
     draggable={false}
   />

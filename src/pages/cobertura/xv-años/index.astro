@@ -1,23 +1,33 @@
 ---
-import Boda1 from '@/assets/images/boda-1.png';
+import Grid1 from '@/assets/images/coberturas/xv-años/grid-1.webp';
+import Grid2 from '@/assets/images/coberturas/xv-años/grid-2.webp';
+import Grid3 from '@/assets/images/coberturas/xv-años/grid-3.webp';
+import Grid4 from '@/assets/images/coberturas/xv-años/grid-4.webp';
+import Grid5 from '@/assets/images/coberturas/xv-años/grid-5.webp';
+import PrimaryImage from '@/assets/images/coberturas/xv-años/primary.webp';
 import BackgroundHero from '@/components/Sections/BackgroundHero.astro';
 import PrimaryBento from '@/components/Sections/PrimaryBento.astro';
 import PrimaryTextImage from '@/components/Sections/PrimaryTextImage.astro';
 import Layout from '@/layouts/Layout.astro';
 
-const primaryImage = { image: Boda1, alt: 'Una foto' };
+const primaryImage = {
+  image: PrimaryImage,
+  alt: 'El quinceañero sentado en una silla decorada de XV años',
+};
 
 const bentoImages = [
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una photo' },
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una foto' },
+  { image: Grid1, alt: 'Letras grandes de XV años' },
+  { image: Grid2, alt: 'El quinceañero abrazando a un joven' },
+  { image: Grid3, alt: 'El quinceañero junto a su familia y amigos' },
+  { image: Grid4, alt: 'Amigos disfrutando de la fiesta de XV años' },
+  { image: Grid5, alt: 'El quinceañero de pie frente a las letras de XV años' },
 ];
 ---
 
 <Layout>
-  <BackgroundHero backdrop="/src/assets/images/boda-hero.png">
+  <BackgroundHero
+    backdrop="/src/assets/images/coberturas/xv-años/background.webp"
+  >
     <h1
       class="text-light-lily text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
     >

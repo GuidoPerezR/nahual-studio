@@ -1,22 +1,29 @@
 ---
-import Boda1 from '@/assets/images/boda-1.png';
+import Grid1 from '@/assets/images/fotografias/gastronomicas/grid-1.webp';
+import Grid2 from '@/assets/images/fotografias/gastronomicas/grid-2.webp';
+import Grid3 from '@/assets/images/fotografias/gastronomicas/grid-3.webp';
+import Grid4 from '@/assets/images/fotografias/gastronomicas/grid-4.webp';
+import Grid5 from '@/assets/images/fotografias/gastronomicas/grid-5.webp';
+import PrimaryImage from '@/assets/images/fotografias/gastronomicas/primary.webp';
 import BackgroundHero from '@/components/Sections/BackgroundHero.astro';
 import SecondaryBento from '@/components/Sections/SecondaryBento.astro';
 import SecondaryTextImage from '@/components/Sections/SecondaryTextImage.astro';
 import Layout from '@/layouts/Layout.astro';
 
-const primaryImage = { image: Boda1, alt: 'Una foto' };
+const primaryImage = { image: PrimaryImage, alt: 'Una foto' };
 const bentoImages = [
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una foto' },
+  { image: Grid1, alt: 'Una foto' },
+  { image: Grid2, alt: 'Una foto' },
+  { image: Grid3, alt: 'Una foto' },
+  { image: Grid4, alt: 'Una foto' },
+  { image: Grid5, alt: 'Una foto' },
 ];
 ---
 
 <Layout>
-  <BackgroundHero backdrop="/src/assets/images/boda-hero.png">
+  <BackgroundHero
+    backdrop="/src/assets/images/fotografias/gastronomicas/background.webp"
+  >
     <h1
       class="text-light-lily text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
     >

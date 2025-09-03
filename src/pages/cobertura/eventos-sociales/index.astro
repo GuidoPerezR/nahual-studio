@@ -1,22 +1,41 @@
 ---
-import Boda1 from '@/assets/images/boda-1.png';
+import Grid1 from '@/assets/images/coberturas/eventos-sociales/grid-1.webp';
+import Grid2 from '@/assets/images/coberturas/eventos-sociales/grid-2.webp';
+import Grid3 from '@/assets/images/coberturas/eventos-sociales/grid-3.webp';
+import Grid4 from '@/assets/images/coberturas/eventos-sociales/grid-4.webp';
+import Grid5 from '@/assets/images/coberturas/eventos-sociales/grid-5.webp';
+import PrimaryImage from '@/assets/images/coberturas/eventos-sociales/primary.webp';
 import BackgroundHero from '@/components/Sections/BackgroundHero.astro';
 import SecondaryBento from '@/components/Sections/SecondaryBento.astro';
 import SecondaryTextImage from '@/components/Sections/SecondaryTextImage.astro';
 import Layout from '@/layouts/Layout.astro';
 
-const primaryImage = { image: Boda1, alt: 'Una foto' };
+const primaryImage = {
+  image: PrimaryImage,
+  alt: 'Un carro Nissan al lado de una botarga con forma de corazón',
+};
 const bentoImages = [
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una foto' },
+  {
+    image: Grid1,
+    alt: 'Un hombre con un ramo de flores junto a una botarga con forma de corazón',
+  },
+  {
+    image: Grid2,
+    alt: 'Un vendedor de Nissan conversando con un hombre de traje negro',
+  },
+  { image: Grid3, alt: 'Vista trasera de un carro Nissan' },
+  {
+    image: Grid4,
+    alt: 'Dos carros Nissan estacionados uno junto al otro',
+  },
+  { image: Grid5, alt: 'Volante de un automóvil Nissan' },
 ];
 ---
 
 <Layout>
-  <BackgroundHero backdrop="/src/assets/images/boda-hero.png">
+  <BackgroundHero
+    backdrop="/src/assets/images/coberturas/eventos-sociales/background.webp"
+  >
     <h1
       class="text-light-lily text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
     >
