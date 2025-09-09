@@ -1,25 +1,38 @@
 ---
-import Boda1 from '@/assets/images/boda-1.png';
+import Grid1 from '@/assets/images/coberturas/bodas/grid-1.webp';
+import Grid2 from '@/assets/images/coberturas/bodas/grid-2.webp';
+import Grid3 from '@/assets/images/coberturas/bodas/grid-3.webp';
+import Grid4 from '@/assets/images/coberturas/bodas/grid-4.webp';
+import Grid5 from '@/assets/images/coberturas/bodas/grid-5.webp';
+import PrimaryImage from '@/assets/images/coberturas/bodas/primary.webp';
 import BackgroundHero from '@/components/Sections/BackgroundHero.astro';
 import PrimaryBento from '@/components/Sections/PrimaryBento.astro';
 import PrimaryTextImage from '@/components/Sections/PrimaryTextImage.astro';
 import Layout from '@/layouts/Layout.astro';
 
-const primaryImage = { image: Boda1, alt: 'Una foto' };
+const primaryImage = {
+  image: PrimaryImage,
+  alt: 'La pareja de novios dándose un beso',
+};
 
 const bentoImages = [
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una photo' },
-  { image: Boda1, alt: 'Una foto' },
-  { image: Boda1, alt: 'Una foto' },
+  {
+    image: Grid1,
+    alt: 'La pareja de novios sosteniendo un cartel de Kiss Cam',
+  },
+  { image: Grid2, alt: 'La novia recostada en el hombro del novio' },
+  { image: Grid3, alt: 'Los novios en el altar' },
+  { image: Grid4, alt: 'Una canasta con flores blancas' },
+  { image: Grid5, alt: 'La novia caminando hacia el altar' },
 ];
 ---
 
 <Layout>
-  <BackgroundHero backdrop="/src/assets/images/boda-hero.png">
+  <BackgroundHero
+    backdrop="/src/assets/images/coberturas/bodas/background.webp"
+  >
     <h1
-      class="text-light-lily text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
+      class="text-light-lily anim-title text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
     >
       Cobertura de bodas
     </h1>

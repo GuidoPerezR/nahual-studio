@@ -12,24 +12,30 @@ const { title, description, image } = Astro.props;
 ---
 
 <section
-  class="bg-light-blue xl:gap-26 md:py-17 lg:py-18 lg:px-17 flex flex-col px-5 py-16 md:flex-row md:items-center md:justify-center md:gap-8 md:px-11 lg:gap-16 xl:px-24 xl:py-20"
+  class="bg-light-blue section xl:gap-26 md:py-17 lg:py-18 lg:px-17 flex flex-col px-5 py-16 md:flex-row md:items-center md:justify-center md:gap-8 md:px-11 lg:gap-16 xl:px-24 xl:py-20"
 >
   <Image
     src={image?.image}
     alt={image?.alt}
-    class={'md:rounded-image w-full select-none rounded-2xl object-cover md:max-w-lg lg:max-w-xl xl:max-w-2xl'}
+    class={'md:rounded-image w-full select-none rounded-2xl object-cover md:max-w-lg lg:max-w-xl xl:max-w-2xl anim-element'}
+    width={586}
+    height={409}
     loading={'lazy'}
     draggable={false}
   />
 
   <div class="mt-16 md:mt-0 xl:max-w-sm">
     <h2
-      class="text-light-lily text-header-2-mobile xl:text-header-2 leading-header font-tanker mb-4"
+      class="text-light-lily text-header-2-mobile xl:text-header-2 leading-header font-tanker anim-title mb-4"
     >
       {title}
     </h2>
-    <p class="text-light-lily leading-paragraph font-general-sans md:max-w-xs">
+    <p
+      class="text-light-lily leading-paragraph font-general-sans anim-element max-w-xs"
+    >
       {description}
     </p>
   </div>
 </section>
+
+<script src="/src/scripts/section-opacity-animation.js"></script>

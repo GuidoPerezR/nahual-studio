@@ -13,8 +13,10 @@ const { image, name, job } = Astro.props;
 <article class="h-fit">
   <Image
     src={image}
-    alt={`Una foto de ${name}`}
+    alt={`${name}`}
     class={'w-full h-full object-cover select-none rounded-image'}
+    width={406}
+    height={537}
     loading={'lazy'}
     draggable={false}
   />

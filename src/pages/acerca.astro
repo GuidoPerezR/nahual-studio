@@ -2,8 +2,8 @@
 import BackgroundHero from '@/components/Sections/BackgroundHero.astro';
 import Layout from '@/layouts/Layout.astro';
 
-import Alondra from '@/assets/images/alondra.webp';
-import Dilan from '@/assets/images/dilan.webp';
+import Alondra from '@/assets/images/acerca/alondra.webp';
+import Dilan from '@/assets/images/acerca/dilan.webp';
 import TeamCard from '@/components/TeamCard.astro';
 
 const team = [
@@ -21,19 +21,19 @@ const team = [
 ---
 
 <Layout>
-  <BackgroundHero backdrop="/src/assets/images/collage.webp">
+  <BackgroundHero backdrop="/src/assets/images/acerca/background.webp">
     <div
       class="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-5 py-16 text-center md:max-w-xl md:px-0 md:py-0"
     >
       <h1
-        class="text-light-lily text-header-1-mobile md:text-header-1 leading-header font-tanker mb-4 uppercase"
+        class="text-light-lily text-header-1-mobile md:text-header-1 leading-header font-tanker anim-title mb-4 uppercase"
       >
         <span class="text-carnation">¿</span>Quiénes somos<span
           class="text-carnation">?</span
         >
       </h1>
       <p
-        class="text-light-lily leading-paragraph font-general-sans font-semibold"
+        class="text-light-lily leading-paragraph font-general-sans fade font-semibold"
       >
         Somos un estudio de diseño gráfico y fotografía profesional en
         Tapachula, Chiapas. Nos especializamos en crear identidades visuales
@@ -44,22 +44,24 @@ const team = [
   </BackgroundHero>
 
   <section
-    class="bg-light-blue grid px-5 py-16 md:justify-center md:px-24 md:py-20"
+    class="bg-light-blue section grid px-5 py-16 md:justify-center md:px-24 md:py-20"
   >
-    <div class="mb-16 md:mx-auto md:max-w-sm md:text-center">
+    <div class="mb-16 max-w-sm md:mx-auto md:text-center">
       <h2
-        class="text-light-lily text-header-2-mobile md:text-header-2 leading-header font-tanker mb-4"
+        class="text-light-lily text-header-2-mobile md:text-header-2 leading-header font-tanker anim-title mb-4"
       >
         Nuestro Equipo
       </h2>
 
-      <p class="text-light-lily leading-paragraph font-general-sans">
+      <p
+        class="text-light-lily leading-paragraph font-general-sans anim-element"
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate
         libero et velit interdum, ac aliquet odio mattis.
       </p>
     </div>
 
-    <div class="grid gap-16 md:grid-cols-2">
+    <div class="anim-element grid gap-16 md:grid-cols-2">
       {
         team?.map((member) => (
           <TeamCard
@@ -72,3 +74,5 @@ const team = [
     </div>
   </section>
 </Layout>
+
+<script src="/src/scripts/section-opacity-animation.js"></script>

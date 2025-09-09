@@ -1,0 +1,25 @@
+---
+import MainButton from '@/components/MainButton.astro';
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout>
+  <section
+    class="bg-light-lily md:py-17 lg:py-18 lg:px-17 grid h-dvh items-center justify-center px-5 py-16 md:px-11 xl:px-24 xl:py-20"
+  >
+    <div class="max-w-xl text-center">
+      <div class="mb-8">
+        <h1
+          class="text-light-blue font-tanker leading-header text-header-1-mobile lg:text-header-1 mb-4 uppercase"
+        >
+          Esta página no está disponible
+        </h1>
+        <p class="text-light-blue leading-paragraph font-general-sans">
+          Es posible que la dirección que escribiste sea incorrecta, que el
+          enlace haya caducado o que la página haya sido eliminada.
+        </p>
+      </div>
+      <MainButton url="/" class="mx-auto">Ir a la página principal</MainButton>
+    </div>
+  </section>
+</Layout>

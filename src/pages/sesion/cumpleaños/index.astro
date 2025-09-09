@@ -1,0 +1,49 @@
+---
+import Grid1 from '@/assets/images/sesiones/cumpleaños/grid-1.webp';
+import Grid2 from '@/assets/images/sesiones/cumpleaños/grid-2.webp';
+import Grid3 from '@/assets/images/sesiones/cumpleaños/grid-3.webp';
+import Grid4 from '@/assets/images/sesiones/cumpleaños/grid-4.webp';
+import Grid5 from '@/assets/images/sesiones/cumpleaños/grid-5.webp';
+import Primary from '@/assets/images/sesiones/cumpleaños/primary.webp';
+import BackgroundHero from '@/components/Sections/BackgroundHero.astro';
+import SecondaryBento from '@/components/Sections/SecondaryBento.astro';
+import SecondaryTextImage from '@/components/Sections/SecondaryTextImage.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const primaryImage = {
+  image: Primary,
+  alt: 'La cumpleanera con pose pensante',
+};
+const bentoImages = [
+  { image: Grid5, alt: 'Una foto' },
+  { image: Grid2, alt: 'Una foto' },
+  { image: Grid3, alt: 'Una foto' },
+  { image: Grid4, alt: 'Una foto' },
+  { image: Grid1, alt: 'Una foto' },
+];
+---
+
+<Layout>
+  <BackgroundHero
+    backdrop="/src/assets/images/sesiones/cumpleaños/background.webp"
+  >
+    <h1
+      class="text-light-lily anim-title text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
+    >
+      Sesion de cumpleaños
+    </h1>
+  </BackgroundHero>
+
+  <SecondaryTextImage
+    title="Lorem ipsum dolor sit"
+    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
+    image={primaryImage}
+  />
+
+  <SecondaryBento
+    title="Lorem ipsum dolor sit"
+    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
+    buttonLabel="¡Agenda ahora!"
+    images={bentoImages}
+  />
+</Layout>
