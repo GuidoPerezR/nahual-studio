@@ -12,7 +12,7 @@ const { title, description, image } = Astro.props;
 ---
 
 <section
-  class="bg-light-blue xl:gap-26 md:py-17 lg:py-18 lg:px-17 flex flex-col px-5 py-16 md:flex-row md:items-center md:justify-center md:gap-8 md:px-11 lg:gap-16 xl:px-24 xl:py-20"
+  class="bg-light-blue section xl:gap-26 md:py-17 lg:py-18 lg:px-17 flex flex-col px-5 py-16 md:flex-row md:items-center md:justify-center md:gap-8 md:px-11 lg:gap-16 xl:px-24 xl:py-20"
 >
   <div class="mb-16 md:mb-0 xl:max-w-sm">
     <h2
@@ -20,17 +20,21 @@ const { title, description, image } = Astro.props;
     >
       {title}
     </h2>
-    <p class="text-light-lily leading-paragraph font-general-sans md:max-w-xs">
+    <p
+      class="text-light-lily leading-paragraph font-general-sans anim-element max-w-xs"
+    >
       {description}
     </p>
   </div>
   <Image
     src={image?.image}
     alt={image?.alt}
-    class={'w-full md:max-w-lg lg:max-w-xl xl:max-w-2xl object-cover rounded-2xl md:rounded-image select-none'}
+    class={'w-full md:max-w-lg lg:max-w-xl xl:max-w-2xl object-cover rounded-2xl md:rounded-image select-none anim-element'}
     width={586}
     height={409}
     loading={'lazy'}
     draggable={false}
   />
 </section>
+
+<script src="/src/scripts/section-opacity-animation.js"></script>

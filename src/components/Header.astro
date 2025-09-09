@@ -1,4 +1,5 @@
 ---
+import ChevronDown from '@/assets/icons/chevron-down.svg';
 import Logo from '@/assets/icons/logo.svg';
 import Menu from '@/assets/icons/menu.svg';
 import X from '@/assets/icons/x.svg';
@@ -67,31 +68,40 @@ const services = [
     </div>
 
     <ul
-      class="text-light-lily md:text-light-blue font-general-sans space-y-4 px-5 py-[18px] md:flex md:items-center md:space-x-8 md:space-y-0 md:px-0 md:py-0"
+      class="text-light-lily md:text-light-blue font-general-sans space-y-4 px-5 py-[18px] md:flex md:items-center md:space-x-8 md:space-y-0 md:px-0 md:py-0 md:drop-shadow-lg"
     >
       <li>
         <a href="/">Inicio</a>
       </li>
-      <li class="relative">
-        <label class="peer">
-          Servicios
+      <!-- <li class="relative">
+        <label
+          class="peer flex cursor-pointer select-none items-center justify-between md:justify-normal md:gap-4"
+        >
+          <span>Servicios</span>
+          <ChevronDown class="-rotate-90 md:rotate-0" />
           <input type="checkbox" id="dropdown" hidden />
         </label>
 
         <ul
-          class="bg-light-lily text-light-blue peer-has-checked:block absolute top-[59px] hidden w-52 gap-3 rounded-b-[14px] p-2 drop-shadow-2xl"
+          id="services-menu"
+          class="md:bg-light-lily bg-carnation md:text-light-blue peer-has-checked:block absolute hidden w-full space-y-4 md:top-[59px] md:w-52 md:gap-3 md:space-y-0 md:rounded-b-[14px] md:p-2"
         >
+          <li>Volver</li>
+
           {
             services?.map((service) => (
-              <li class="hover:bg-dark-lily hover:text-light-lily rounded-button p-2">
-                <a href={service.href} class="w-full">
+              <li>
+                <a
+                  href={service.href}
+                  class="md:hover:text-light-lily md:hover:bg-dark-lily md:rounded-button block w-full md:p-2"
+                >
                   {service.name}
                 </a>
               </li>
             ))
           }
         </ul>
-      </li>
+      </li> -->
       <li>
         <a href="/acerca">Acerca de</a>
       </li>
@@ -100,17 +110,41 @@ const services = [
       </li>
     </ul>
   </nav>
-
-  <style>
-    @media (max-width: 767px) {
-      #navbar {
-        transform: translateX(100%);
-        transition: transform 0.4s ease-in-out;
-      }
-
-      #bars-button:checked ~ #navbar {
-        transform: translateX(0%);
-      }
-    }
-  </style>
 </header>
+<style>
+  @media (max-width: 767px) {
+    #navbar {
+      transform: translateX(100%);
+      transition: transform 0.4s ease-in-out;
+    }
+
+    #bars-button:checked ~ #navbar {
+      transform: translateX(0%);
+    }
+
+    #services-menu {
+      transform: translateX(100%);
+      transition: transform 0.4s ease-in-out;
+    }
+
+    #dropdown:checked ~ #services-menu {
+      transform: translateX(0%);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const dropdown = document.getElementById('dropdown') as HTMLInputElement;
+    const navbar = document.getElementById('navbar');
+
+    document.addEventListener('click', (event) => {
+      if (navbar) {
+        const isClickInside = navbar.contains(event.target as Node);
+        if (!isClickInside && dropdown) {
+          dropdown.checked = false;
+        }
+      }
+    });
+  });
+</script>
