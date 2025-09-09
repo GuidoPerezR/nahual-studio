@@ -16,7 +16,9 @@ import Layout from '@/layouts/Layout.astro';
               >Escribe tu nombre y apellido</label
             >
           </div>
-          <div class="input-container mt-4 flex w-full flex-col items-center md:mt-8">
+          <div
+            class="input-container mt-4 flex w-full flex-col items-center md:mt-8"
+          >
             <input
               type="text"
               id="name"
@@ -26,7 +28,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
           <button
             type="button"
-            class="next bg-light-blue text-light-lily font-general-sans mt-8 rounded-lg px-9 py-2 font-semibold transition-transform duration-200 active:scale-95"
+            class="next bg-light-blue text-light-lily font-general-sans hover:bg-dark-blue mt-8 cursor-pointer rounded-lg px-9 py-2 font-semibold transition-transform duration-200 active:scale-95"
           >
             Siguiente
           </button>
@@ -41,7 +43,9 @@ import Layout from '@/layouts/Layout.astro';
               >Escribe tu correo electrónico</label
             >
           </div>
-          <div class="input-container mt-4 flex w-full flex-col items-center md:mt-8">
+          <div
+            class="input-container mt-4 flex w-full flex-col items-center md:mt-8"
+          >
             <input
               type="email"
               id="email"
@@ -76,7 +80,9 @@ import Layout from '@/layouts/Layout.astro';
               >Escribe tu mensaje</label
             >
           </div>
-          <div class="input-container mt-4 flex w-full flex-col items-center md:mt-8">
+          <div
+            class="input-container mt-4 flex w-full flex-col items-center md:mt-8"
+          >
             <input
               type="text"
               id="message"
@@ -110,10 +116,12 @@ import Layout from '@/layouts/Layout.astro';
 <script>
   import { z } from 'zod';
 
-  const contactForm = document.querySelector('#contact-form') as HTMLFormElement;
+  const contactForm = document.querySelector(
+    '#contact-form',
+  ) as HTMLFormElement;
   const steps = document.querySelectorAll('.step');
   let currentStep = 0;
-  
+
   const schema = z.object({
     name: z.string().min(1, 'Este campo no puede estar vacío'),
     email: z.email('Correo no valido'),
@@ -140,10 +148,12 @@ import Layout from '@/layouts/Layout.astro';
   function validateStep(index: number) {
     const fieldNames = ['name', 'email', 'message'] as const;
 
-    const field = (document.querySelector(`#${fieldNames[index]}`) as HTMLInputElement)?.value;
+    const field = (
+      document.querySelector(`#${fieldNames[index]}`) as HTMLInputElement
+    )?.value;
     const input = fieldNames[index];
 
-    const result = schema.pick({ [input]: true }).safeParse({[input]: field});
+    const result = schema.pick({ [input]: true }).safeParse({ [input]: field });
 
     if (!result.success) {
       const firstError = result.error.issues[0]?.message;
@@ -152,7 +162,7 @@ import Layout from '@/layouts/Layout.astro';
     return { success: true, error: null };
   }
 
-  function createErrorSpan(error: string){
+  function createErrorSpan(error: string) {
     const span = document.createElement('span');
     span.classList.add(
       'text-carnation',
@@ -164,26 +174,27 @@ import Layout from '@/layouts/Layout.astro';
     return span;
   }
 
-  function initValidation(){
+  function initValidation() {
     document.querySelectorAll('.next').forEach((btn) => {
       const button = btn as HTMLButtonElement;
-  
+
       button.addEventListener('click', () => {
         disabledFormButton(button);
         if (currentStep < steps.length - 1) {
-          const inputContainer = steps[currentStep].querySelector('.input-container');
+          const inputContainer =
+            steps[currentStep].querySelector('.input-container');
           inputContainer?.querySelector('span')?.remove();
-  
+
           setTimeout(() => {
             const validation = validateStep(currentStep);
-  
+
             if (!validation.success) {
               const span = createErrorSpan(validation.error!);
               inputContainer?.append(span);
               enableFormButton(button);
               return;
             }
-  
+
             currentStep++;
             showStep(currentStep);
             enableFormButton(button);
@@ -191,7 +202,7 @@ import Layout from '@/layouts/Layout.astro';
         }
       });
     });
-  
+
     document.querySelectorAll('.prev').forEach((btn) =>
       btn.addEventListener('click', () => {
         if (currentStep > 0) {
@@ -204,12 +215,12 @@ import Layout from '@/layouts/Layout.astro';
     const submitButton = document.querySelector('#submit') as HTMLButtonElement;
 
     submitButton.addEventListener('click', () => {
+      const inputContainer =
+        steps[currentStep].querySelector('.input-container');
 
-      const inputContainer = steps[currentStep].querySelector('.input-container');
-      
       disabledFormButton(submitButton);
       inputContainer?.querySelector('span')?.remove();
-  
+
       setTimeout(() => {
         const validation = validateStep(currentStep);
 
@@ -220,21 +231,19 @@ import Layout from '@/layouts/Layout.astro';
           return;
         }
 
-        contactForm?.requestSubmit()
+        contactForm?.requestSubmit();
         enableFormButton(submitButton);
       }, 300);
-    })
+    });
   }
-
 
   contactForm?.addEventListener('submit', (e) => {
     e.preventDefault();
-    window.alert('Correo enviado')
+    window.alert('Correo enviado');
   });
 
   showStep(currentStep); // inicial
 
-  initValidation()
+  initValidation();
   document.addEventListener('astro:after-swap', () => initValidation());
-
 </script>
