@@ -3,27 +3,29 @@ import Grid1 from '@/assets/images/diseño/creacion-marca/grid-1.webp';
 import Grid2 from '@/assets/images/diseño/creacion-marca/grid-2.webp';
 import Grid3 from '@/assets/images/diseño/creacion-marca/grid-3.webp';
 import Grid4 from '@/assets/images/diseño/creacion-marca/grid-4.webp';
+import Grid5 from '@/assets/images/diseño/creacion-marca/grid-5.webp';
 import PrimaryImage from '@/assets/images/diseño/creacion-marca/primary.webp';
-import Grid5 from '@/assets/images/fotografias/gastronomicas/grid-5.webp';
 import BackgroundHero from '@/components/Sections/BackgroundHero.astro';
 import PrimaryBento from '@/components/Sections/PrimaryBento.astro';
 import PrimaryTextImage from '@/components/Sections/PrimaryTextImage.astro';
 import Layout from '@/layouts/Layout.astro';
 
-const primaryImage = { image: PrimaryImage, alt: 'Una foto' };
+const primaryImage = {
+  image: PrimaryImage,
+  alt: 'Tableta con el logo de Nahual Studio',
+};
+
 const bentoImages = [
-  { image: Grid1, alt: 'Una foto' },
-  { image: Grid2, alt: 'Una foto' },
-  { image: Grid3, alt: 'Una foto' },
-  { image: Grid4, alt: 'Una foto' },
-  { image: Grid5, alt: 'Una foto' },
+  { image: Grid1, alt: 'Caja de pastel con el logo de Chantli' },
+  { image: Grid2, alt: 'Panes en bolsas con el logo de Chantli' },
+  { image: Grid3, alt: 'Cartel publicitario con el logo de Beloes' },
+  { image: Grid4, alt: 'Cartel publicitario con el logo de Chantli' },
+  { image: Grid5, alt: 'Etiqueta con el logo de Chantli' },
 ];
 ---
 
 <Layout>
-  <BackgroundHero
-    backdrop="/src/assets/images/fotografias/gastronomicas/background.webp"
-  >
+  <BackgroundHero backdrop="/images/background/creacion-marca.webp">
     <h1
       class="text-light-lily anim-title text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
     >

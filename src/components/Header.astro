@@ -73,7 +73,7 @@ const services = [
       <li>
         <a href="/">Inicio</a>
       </li>
-      <!-- <li class="relative">
+      <li class="relative">
         <label
           class="peer flex cursor-pointer select-none items-center justify-between md:justify-normal md:gap-4"
         >
@@ -84,10 +84,8 @@ const services = [
 
         <ul
           id="services-menu"
-          class="md:bg-light-lily bg-carnation md:text-light-blue peer-has-checked:block absolute hidden w-full space-y-4 md:top-[59px] md:w-52 md:gap-3 md:space-y-0 md:rounded-b-[14px] md:p-2"
+          class="md:bg-light-lily md:text-light-blue peer-has-checked:block hidden w-full space-y-4 md:absolute md:top-[59px] md:w-52 md:gap-3 md:space-y-0 md:rounded-b-[14px] md:p-2"
         >
-          <li>Volver</li>
-
           {
             services?.map((service) => (
               <li>
@@ -101,7 +99,7 @@ const services = [
             ))
           }
         </ul>
-      </li> -->
+      </li>
       <li>
         <a href="/acerca">Acerca de</a>
       </li>
@@ -122,14 +120,14 @@ const services = [
       transform: translateX(0%);
     }
 
-    #services-menu {
+    /* #services-menu {
       transform: translateX(100%);
       transition: transform 0.4s ease-in-out;
     }
 
     #dropdown:checked ~ #services-menu {
       transform: translateX(0%);
-    }
+    } */
   }
 </style>
 

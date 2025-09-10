@@ -12,21 +12,23 @@ import Layout from '@/layouts/Layout.astro';
 
 const primaryImage = {
   image: Primary,
-  alt: 'La cumpleanera con pose pensante',
+  alt: 'Cumpleañera con pose pensativa',
 };
+
 const bentoImages = [
-  { image: Grid5, alt: 'Una foto' },
-  { image: Grid2, alt: 'Una foto' },
-  { image: Grid3, alt: 'Una foto' },
-  { image: Grid4, alt: 'Una foto' },
-  { image: Grid1, alt: 'Una foto' },
+  { image: Grid1, alt: 'Cumpleañera posando entre dos muros blancos' },
+  { image: Grid2, alt: 'Rostro de la cumpleañera sonriendo a la cámara' },
+  { image: Grid3, alt: 'Cumpleañera posando frente a una puerta de madera' },
+  {
+    image: Grid4,
+    alt: 'Cumpleañera posando mientras sostiene un cuenco artesanal',
+  },
+  { image: Grid5, alt: 'Cumpleañera sosteniendo un cuenco artesanal' },
 ];
 ---
 
 <Layout>
-  <BackgroundHero
-    backdrop="/src/assets/images/sesiones/cumpleaños/background.webp"
-  >
+  <BackgroundHero backdrop="/images/background/cumpleaños.webp">
     <h1
       class="text-light-lily anim-title text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
     >
