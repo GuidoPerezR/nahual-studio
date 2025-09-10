@@ -10,21 +10,22 @@ import PrimaryBento from '@/components/Sections/PrimaryBento.astro';
 import PrimaryTextImage from '@/components/Sections/PrimaryTextImage.astro';
 import Layout from '@/layouts/Layout.astro';
 
-const primaryImage = { image: PrimaryImage, alt: 'Una foto' };
+const primaryImage = {
+  image: PrimaryImage,
+  alt: 'Señora esperando su bebida en la barra de cócteles',
+};
 
 const bentoImages = [
-  { image: Grid1, alt: 'Una foto' },
-  { image: Grid2, alt: 'Una foto' },
-  { image: Grid3, alt: 'Una photo' },
-  { image: Grid4, alt: 'Una foto' },
-  { image: Grid5, alt: 'Una foto' },
+  { image: Grid1, alt: 'Automóviles Nissan, uno blanco y otro rojo' },
+  { image: Grid2, alt: 'Fachada de la agencia Nissan' },
+  { image: Grid3, alt: 'Locutora de radio entrevistando a una señora' },
+  { image: Grid4, alt: 'Familia dentro de una camioneta blanca Nissan' },
+  { image: Grid5, alt: 'Mujer joven abriendo el cofre de un automóvil Nissan' },
 ];
 ---
 
 <Layout>
-  <BackgroundHero
-    backdrop="/src/assets/images/fotografias/interior/background.webp"
-  >
+  <BackgroundHero backdrop="/images/background/interior.webp">
     <h1
       class="text-light-lily anim-title text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
     >
