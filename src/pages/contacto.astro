@@ -1,0 +1,249 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout>
+  <section
+    class="bg-light-lily flex min-h-dvh items-center justify-center px-5 py-16"
+  >
+    <form action="" class="w-full max-w-md" id="contact-form">
+      <div class="step active">
+        <fieldset class="flex flex-col items-center justify-center">
+          <div class="max-w-2xs flex items-center justify-center">
+            <label
+              for="name"
+              class="font-tanker text-light-blue text-header-4-mobile lg:text-header-4 leading-header text-balance text-center"
+              >Escribe tu nombre y apellido</label
+            >
+          </div>
+          <div
+            class="input-container mt-4 flex w-full flex-col items-center md:mt-8"
+          >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="border-light-blue focus:outline-dark-lily font-general-sans text-light-blue w-full border-b-2 px-2 pb-0.5 pt-2 font-medium"
+            />
+          </div>
+          <button
+            type="button"
+            class="next bg-light-blue text-light-lily font-general-sans hover:bg-dark-blue mt-8 cursor-pointer rounded-lg px-9 py-2 font-semibold transition-transform duration-200 active:scale-95"
+          >
+            Siguiente
+          </button>
+        </fieldset>
+      </div>
+      <div class="step hidden">
+        <fieldset class="flex flex-col items-center justify-center">
+          <div class="max-w-2xs flex items-center justify-center">
+            <label
+              for="email"
+              class="font-tanker text-light-blue text-header-4-mobile lg:text-header-4 leading-header text-balance text-center"
+              >Escribe tu correo electrónico</label
+            >
+          </div>
+          <div
+            class="input-container mt-4 flex w-full flex-col items-center md:mt-8"
+          >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="border-light-blue focus:outline-dark-lily font-general-sans text-light-blue w-full border-b-2 px-2 pb-0.5 pt-2 font-medium"
+            />
+          </div>
+          <footer
+            class="font-general-sans mt-8 flex w-full justify-around font-semibold"
+          >
+            <button
+              type="button"
+              class="prev border-light-blue text-light-blue rounded-lg border-2 px-9 py-2"
+            >
+              Retroceder
+            </button>
+            <button
+              type="button"
+              class="next bg-light-blue text-light-lily rounded-lg px-9 py-2 transition-transform duration-200 active:scale-95"
+            >
+              Siguiente
+            </button>
+          </footer>
+        </fieldset>
+      </div>
+      <div class="step hidden">
+        <fieldset class="flex flex-col items-center justify-center">
+          <div class="max-w-2xs flex items-center justify-center">
+            <label
+              for="message"
+              class="font-tanker text-light-blue text-header-4-mobile lg:text-header-4 leading-header text-balance text-center"
+              >Escribe tu mensaje</label
+            >
+          </div>
+          <div
+            class="input-container mt-4 flex w-full flex-col items-center md:mt-8"
+          >
+            <input
+              type="text"
+              id="message"
+              name="message"
+              class="border-light-blue focus:outline-dark-lily font-general-sans text-light-blue w-full border-b-2 px-2 pb-0.5 pt-2 font-medium"
+            />
+          </div>
+          <footer
+            class="font-general-sans mt-8 flex w-full justify-around font-semibold"
+          >
+            <button
+              type="button"
+              class="prev border-light-blue text-light-blue rounded-lg border-2 px-9 py-2"
+            >
+              Retroceder
+            </button>
+            <button
+              type="submit"
+              id="submit"
+              class="bg-light-blue text-light-lily rounded-lg px-9 py-2"
+            >
+              Enviar
+            </button>
+          </footer>
+        </fieldset>
+      </div>
+    </form>
+  </section>
+</Layout>
+
+<script>
+  import { z } from 'zod';
+
+  const contactForm = document.querySelector(
+    '#contact-form',
+  ) as HTMLFormElement;
+  const steps = document.querySelectorAll('.step');
+  let currentStep = 0;
+
+  const schema = z.object({
+    name: z.string().min(1, 'Este campo no puede estar vacío'),
+    email: z.email('Correo no valido'),
+    message: z.string().min(1, 'Este campo no puede estar vacío'),
+  });
+
+  function showStep(index: number) {
+    steps.forEach((step, i) => {
+      step.classList.toggle('hidden', i !== index);
+      step.classList.toggle('active', i === index);
+    });
+  }
+
+  function disabledFormButton(button: HTMLButtonElement) {
+    button.setAttribute('disabled', 'true');
+    button.classList.add('disabled');
+  }
+
+  function enableFormButton(button: HTMLButtonElement) {
+    button.removeAttribute('disabled');
+    button.classList.remove('disabled');
+  }
+
+  function validateStep(index: number) {
+    const fieldNames = ['name', 'email', 'message'] as const;
+
+    const field = (
+      document.querySelector(`#${fieldNames[index]}`) as HTMLInputElement
+    )?.value;
+    const input = fieldNames[index];
+
+    const result = schema.pick({ [input]: true }).safeParse({ [input]: field });
+
+    if (!result.success) {
+      const firstError = result.error.issues[0]?.message;
+      return { success: false, error: firstError };
+    }
+    return { success: true, error: null };
+  }
+
+  function createErrorSpan(error: string) {
+    const span = document.createElement('span');
+    span.classList.add(
+      'text-carnation',
+      'mt-2',
+      'font-general-sans',
+      'text-[15px]',
+    );
+    span.textContent = error;
+    return span;
+  }
+
+  function initValidation() {
+    document.querySelectorAll('.next').forEach((btn) => {
+      const button = btn as HTMLButtonElement;
+
+      button.addEventListener('click', () => {
+        disabledFormButton(button);
+        if (currentStep < steps.length - 1) {
+          const inputContainer =
+            steps[currentStep].querySelector('.input-container');
+          inputContainer?.querySelector('span')?.remove();
+
+          setTimeout(() => {
+            const validation = validateStep(currentStep);
+
+            if (!validation.success) {
+              const span = createErrorSpan(validation.error!);
+              inputContainer?.append(span);
+              enableFormButton(button);
+              return;
+            }
+
+            currentStep++;
+            showStep(currentStep);
+            enableFormButton(button);
+          }, 300);
+        }
+      });
+    });
+
+    document.querySelectorAll('.prev').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      }),
+    );
+
+    const submitButton = document.querySelector('#submit') as HTMLButtonElement;
+
+    submitButton.addEventListener('click', () => {
+      const inputContainer =
+        steps[currentStep].querySelector('.input-container');
+
+      disabledFormButton(submitButton);
+      inputContainer?.querySelector('span')?.remove();
+
+      setTimeout(() => {
+        const validation = validateStep(currentStep);
+
+        if (!validation.success) {
+          const span = createErrorSpan(validation.error!);
+          inputContainer?.append(span);
+          enableFormButton(submitButton);
+          return;
+        }
+
+        contactForm?.requestSubmit();
+        enableFormButton(submitButton);
+      }, 300);
+    });
+  }
+
+  contactForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    window.alert('Correo enviado');
+  });
+
+  showStep(currentStep); // inicial
+
+  initValidation();
+  document.addEventListener('astro:after-swap', () => initValidation());
+</script>
