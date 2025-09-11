@@ -10,20 +10,28 @@ import SecondaryBento from '@/components/Sections/SecondaryBento.astro';
 import SecondaryTextImage from '@/components/Sections/SecondaryTextImage.astro';
 import Layout from '@/layouts/Layout.astro';
 
-const primaryImage = { image: PrimaryImage, alt: 'Una foto' };
+const primaryImage = {
+  image: PrimaryImage,
+  alt: 'Postre con galleta decorada',
+};
+
 const bentoImages = [
-  { image: Grid1, alt: 'Una foto' },
-  { image: Grid2, alt: 'Una foto' },
-  { image: Grid3, alt: 'Una foto' },
-  { image: Grid4, alt: 'Una foto' },
-  { image: Grid5, alt: 'Una foto' },
+  {
+    image: Grid1,
+    alt: 'Pastel de chocolate y fresa decorado con perlas de azúcar',
+  },
+  { image: Grid2, alt: 'Pastel de chocolate con perlas de azúcar' },
+  { image: Grid3, alt: 'Postre de fresa con perlas de azúcar' },
+  { image: Grid4, alt: 'Galleta con el logo de Cakes by Pao' },
+  {
+    image: Grid5,
+    alt: 'Pastel de chocolate y fresa con perlas de azúcar y crema batida',
+  },
 ];
 ---
 
 <Layout>
-  <BackgroundHero
-    backdrop="/src/assets/images/fotografias/gastronomicas/background.webp"
-  >
+  <BackgroundHero backdrop="/images/background/gastronomicas.webp">
     <h1
       class="text-light-lily anim-title text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
     >

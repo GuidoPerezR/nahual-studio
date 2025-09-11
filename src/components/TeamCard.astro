@@ -14,9 +14,7 @@ const { image, name, job } = Astro.props;
   <Image
     src={image}
     alt={`${name}`}
-    class={'w-full h-full object-cover select-none rounded-image'}
-    width={406}
-    height={537}
+    class={'w-full h-full md:w-[406px] object-cover select-none rounded-image md:h-[537px]'}
     loading={'lazy'}
     draggable={false}
   />
