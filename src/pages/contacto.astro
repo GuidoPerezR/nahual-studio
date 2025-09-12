@@ -1,11 +1,16 @@
 ---
+import MainButton from '@/components/MainButton.astro';
 import Layout from '@/layouts/Layout.astro';
 ---
 
 <Layout>
   <section
-    class="bg-light-lily flex min-h-dvh items-center justify-center px-5 py-16"
+    class="bg-light-lily relative flex min-h-dvh items-center justify-center px-5 py-16"
   >
+    <aside class="absolute top-0 flex w-full items-start">
+      <progress id="progress" max="100" value="0" class="w-full text-xs"
+      ></progress>
+    </aside>
     <form action="" class="w-full max-w-md" id="contact-form">
       <div class="step active">
         <fieldset class="flex flex-col items-center justify-center">
@@ -28,7 +33,7 @@ import Layout from '@/layouts/Layout.astro';
           </div>
           <button
             type="button"
-            class="next bg-light-blue text-light-lily font-general-sans hover:bg-dark-blue mt-8 cursor-pointer rounded-lg px-9 py-2 font-semibold transition-transform duration-200 active:scale-95"
+            class="next bg-light-blue text-light-lily font-general-sans hover:bg-dark-blue mt-8 cursor-pointer rounded-lg px-9 py-2 font-semibold transition-colors duration-200"
           >
             Siguiente
           </button>
@@ -58,13 +63,13 @@ import Layout from '@/layouts/Layout.astro';
           >
             <button
               type="button"
-              class="prev border-light-blue text-light-blue rounded-lg border-2 px-9 py-2"
+              class="prev border-light-blue text-light-blue hover:bg-dark-blue hover:text-light-lily hover:border-dark-blue cursor-pointer rounded-lg border-2 px-9 py-2 transition-colors duration-200"
             >
               Retroceder
             </button>
             <button
               type="button"
-              class="next bg-light-blue text-light-lily rounded-lg px-9 py-2 transition-transform duration-200 active:scale-95"
+              class="next bg-light-blue text-light-lily hover:bg-dark-blue cursor-pointer rounded-lg px-9 py-2 transition-colors duration-200"
             >
               Siguiente
             </button>
@@ -95,14 +100,14 @@ import Layout from '@/layouts/Layout.astro';
           >
             <button
               type="button"
-              class="prev border-light-blue text-light-blue rounded-lg border-2 px-9 py-2"
+              class="prev border-light-blue text-light-blue hover:bg-dark-blue hover:text-light-lily hover:border-dark-blue cursor-pointer rounded-lg border-2 px-9 py-2 transition-colors duration-200"
             >
               Retroceder
             </button>
             <button
               type="submit"
               id="submit"
-              class="bg-light-blue text-light-lily rounded-lg px-9 py-2"
+              class="bg-light-blue text-light-lily hover:bg-dark-blue cursor-pointer rounded-lg px-9 py-2 transition-colors duration-200"
             >
               Enviar
             </button>
@@ -110,140 +115,37 @@ import Layout from '@/layouts/Layout.astro';
         </fieldset>
       </div>
     </form>
+    <div class="hidden w-full max-w-xl text-center" id="success-advise">
+      <div class="mb-8">
+        <h2
+          class="text-light-blue font-tanker leading-header text-header-2-mobile lg:text-header-2 mb-4 uppercase"
+        >
+          Tu información se ha enviado correctamente
+        </h2>
+        <p class="text-light-blue leading-paragraph font-general-sans">
+          Te estaremos contactando lo mas pronto posible. Agradecemos su interés
+          en nuestros servicios.
+        </p>
+      </div>
+      <MainButton url="/" class="mx-auto" noblank
+        >Ir a la página principal</MainButton
+      >
+    </div>
   </section>
 </Layout>
 
-<script>
-  import { z } from 'zod';
-
-  const contactForm = document.querySelector(
-    '#contact-form',
-  ) as HTMLFormElement;
-  const steps = document.querySelectorAll('.step');
-  let currentStep = 0;
-
-  const schema = z.object({
-    name: z.string().min(1, 'Este campo no puede estar vacío'),
-    email: z.email('Correo no valido'),
-    message: z.string().min(1, 'Este campo no puede estar vacío'),
-  });
-
-  function showStep(index: number) {
-    steps.forEach((step, i) => {
-      step.classList.toggle('hidden', i !== index);
-      step.classList.toggle('active', i === index);
-    });
+<style>
+  progress::-webkit-progress-bar {
+    background-color: transparent;
   }
 
-  function disabledFormButton(button: HTMLButtonElement) {
-    button.setAttribute('disabled', 'true');
-    button.classList.add('disabled');
+  progress::-webkit-progress-value {
+    background-color: #072e4a;
   }
 
-  function enableFormButton(button: HTMLButtonElement) {
-    button.removeAttribute('disabled');
-    button.classList.remove('disabled');
+  progress::-moz-progress-bar {
+    background-color: #3eaad2;
   }
+</style>
 
-  function validateStep(index: number) {
-    const fieldNames = ['name', 'email', 'message'] as const;
-
-    const field = (
-      document.querySelector(`#${fieldNames[index]}`) as HTMLInputElement
-    )?.value;
-    const input = fieldNames[index];
-
-    const result = schema.pick({ [input]: true }).safeParse({ [input]: field });
-
-    if (!result.success) {
-      const firstError = result.error.issues[0]?.message;
-      return { success: false, error: firstError };
-    }
-    return { success: true, error: null };
-  }
-
-  function createErrorSpan(error: string) {
-    const span = document.createElement('span');
-    span.classList.add(
-      'text-carnation',
-      'mt-2',
-      'font-general-sans',
-      'text-[15px]',
-    );
-    span.textContent = error;
-    return span;
-  }
-
-  function initValidation() {
-    document.querySelectorAll('.next').forEach((btn) => {
-      const button = btn as HTMLButtonElement;
-
-      button.addEventListener('click', () => {
-        disabledFormButton(button);
-        if (currentStep < steps.length - 1) {
-          const inputContainer =
-            steps[currentStep].querySelector('.input-container');
-          inputContainer?.querySelector('span')?.remove();
-
-          setTimeout(() => {
-            const validation = validateStep(currentStep);
-
-            if (!validation.success) {
-              const span = createErrorSpan(validation.error!);
-              inputContainer?.append(span);
-              enableFormButton(button);
-              return;
-            }
-
-            currentStep++;
-            showStep(currentStep);
-            enableFormButton(button);
-          }, 300);
-        }
-      });
-    });
-
-    document.querySelectorAll('.prev').forEach((btn) =>
-      btn.addEventListener('click', () => {
-        if (currentStep > 0) {
-          currentStep--;
-          showStep(currentStep);
-        }
-      }),
-    );
-
-    const submitButton = document.querySelector('#submit') as HTMLButtonElement;
-
-    submitButton.addEventListener('click', () => {
-      const inputContainer =
-        steps[currentStep].querySelector('.input-container');
-
-      disabledFormButton(submitButton);
-      inputContainer?.querySelector('span')?.remove();
-
-      setTimeout(() => {
-        const validation = validateStep(currentStep);
-
-        if (!validation.success) {
-          const span = createErrorSpan(validation.error!);
-          inputContainer?.append(span);
-          enableFormButton(submitButton);
-          return;
-        }
-
-        contactForm?.requestSubmit();
-        enableFormButton(submitButton);
-      }, 300);
-    });
-  }
-
-  contactForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    window.alert('Correo enviado');
-  });
-
-  showStep(currentStep); // inicial
-
-  initValidation();
-  document.addEventListener('astro:after-swap', () => initValidation());
-</script>
+<script src="/src/scripts/contact_form.js"></script>
