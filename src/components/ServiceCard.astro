@@ -9,8 +9,8 @@ const { title, image, link } = service;
   class:list={[
     'block w-60 rounded-[52px] transition-colors duration-200 md:w-full md:p-6',
     {
-      'hover:bg-light-blue group': style === 'dark',
-      'hover:bg-light-lily group': style === 'light',
+      'md:hover:bg-light-blue group': style === 'dark',
+      'md:hover:bg-light-lily group': style === 'light',
     },
   ]}
 >
@@ -21,20 +21,21 @@ const { title, image, link } = service;
         loading="lazy"
         alt={`Cobertura de ${title}`}
         class:list={[
-          'w-full select-none object-cover transition-transform duration-300 group-hover:scale-110',
+          'w-full select-none object-cover transition-transform duration-300 md:group-hover:scale-110',
           {
             'h-80 md:h-[419px]': size === 'large',
             'h-64 md:h-[329px]': size === 'medium',
           },
         ]}
+        draggable="false"
       />
     </div>
     <p
       class:list={[
         'font-tanker text-header-4-mobile leading-header lg:text-header-4 max-w-3xs mt-4 transition-colors duration-200 md:mt-6',
         {
-          'text-light-blue group-hover:text-light-lily': style === 'dark',
-          'text-light-lily group-hover:text-light-blue': style === 'light',
+          'text-light-blue md:group-hover:text-light-lily': style === 'dark',
+          'text-light-lily md:group-hover:text-light-blue': style === 'light',
         },
       ]}
     >
