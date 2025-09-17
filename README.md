@@ -1,46 +1,25 @@
-# Astro Starter Kit: Basics
+# 📷 Nahual Studio - Estudio de Diseño Gráfico
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+Landing page para el estudio de diseño gráfico de Nahual Studio, para aumentar la visualización de la empresa, centralizando toda la información del cliente en un sitio moderno y atractivo.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📸 Captura de Pantalla
 
-## 🚀 Project Structure
+![](./public/images/preview.png)
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🌐 Enlace al sitio
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+- [https://nahual-studio.vercel.app/](https://nahual-studio.vercel.app/)
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🛠️ Tecnologías utilizadas
 
-## 🧞 Commands
+- Astro
+- TailwindCSS
+- GSAP
+- JavaScript
 
-All commands are run from the root of the project, from a terminal:
+## 👨‍💻 Autores
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm install`         | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Guidzero
+  - Github: [GuidoPerezR](https://github.com/GuidoPerezR)
+- Alan
+  - Github: [AlanJVD](https://github.com/AlanJVD)
