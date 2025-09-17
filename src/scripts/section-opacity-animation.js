@@ -26,7 +26,7 @@ function initAnimations() {
   const sectionTitles = document.querySelectorAll('.anim-title');
 
   sectionTitles.forEach((title) => {
-    const text = new SplitText(title, { type: 'words, chars' });
+    const text = new SplitText(title, { type: 'chars', smartWrap: true });
 
     gsap.from(text.chars, {
       scrollTrigger: {
