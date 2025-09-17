@@ -5,6 +5,8 @@ import Footer from '@/sections/Footer.astro';
 import '@/styles/global.css';
 // import Analytics from '@vercel/analytics/astro';
 import { ClientRouter } from 'astro:transitions';
+
+const { title = 'Nahual Studio - Estudio de Diseño Gráfico' } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,19 +14,39 @@ import { ClientRouter } from 'astro:transitions';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Nahual Studio - Estudio de Diseño Gráfico</title>
     <meta
       name="description"
       content="Estudio de diseño gráfico especializado en branding y fotografía profesional. Creamos identidades visuales impactantes y atractivas para impulsar el crecimiento de tu marca."
     />
-    <ClientRouter />
-    <!-- <Analytics /> -->
+
+    <meta
+      property="og:title"
+      content="Nahual Studio - Estudio de Diseño Gráfico"
+    />
+    <meta
+      property="og:description"
+      content="Estudio de diseño gráfico especializado en branding y fotografía profesional. Creamos identidades visuales impactantes y atractivas para impulsar el crecimiento de tu marca."
+    />
+    <!-- <meta property="og:image:width" content="1200" /> -->
+    <!-- <meta property="og:image:height" content="630" /> -->
+    <meta
+      property="og:image"
+      content="https://nahual-studio.vercel.app/og-image.png"
+    />
+    <meta property="og:image:alt" content="Imagen del logo de Nahual Studio" />
+    <meta name="robots" content="index, follow" />
   </head>
+  <ClientRouter />
+  <!-- <Analytics /> -->
+
   <body>
     <Header />
     <AnnouncementBar />
     <slot />
     <Footer />
   </body>
+
+
 </html>
