@@ -105,7 +105,10 @@ const IMAGES = [
     const title = document.querySelector('#title');
     const photosContainer = document.querySelector('#photos-container');
 
-    const text = new SplitText(title, { type: 'words, chars' });
+    const text = new SplitText(title, {
+      type: 'chars',
+      smartWrap: true,
+    });
 
     const tl = gsap.timeline();
     // Animacion de inicio
