@@ -9,20 +9,20 @@ const TESTIMONIALS = [
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio optio dolorum culpa sint iure! Voluptatum vero, dolor cumque maiores consequatur quod beatae modi placeat corrupti autem quisquam aliquid quaerat sunt.',
     // image: './test-image.png',
-    author: 'Javier Zavala',
-    jobTitle: 'Fiesta de XV anos',
+    author: 'Usuario 1',
+    jobTitle: 'Evento 1',
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio optio dolorum culpa sint iure! Voluptatum vero, dolor cumque maiores consequatur quod',
     // image: './test-image.png',
-    author: 'Dick Head Zavala',
-    jobTitle: 'Fiesta de XV anos',
+    author: 'Usuario 2',
+    jobTitle: 'Evento 2',
   },
   {
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio optio dolorum culpa sint iure! Voluptatum vero, dolor cumque maiores consequatur quod beatae modi placeat corrupti autem quisquam aliquid quaerat sunt.',
     // image: './test-image.png',
-    author: 'Puta Gutierrez Zavala',
-    jobTitle: 'Fiesta de XV anos',
+    author: 'Usuario 3',
+    jobTitle: 'Evento 3',
   },
 ];
 ---
@@ -44,7 +44,7 @@ const TESTIMONIALS = [
       >
         {
           TESTIMONIALS.map((testimonial) => (
-            <li class="testimonial h-full w-full md:opacity-0">
+            <li class="testimonial h-full md:opacity-0">
               <Testimonial {...testimonial} />
             </li>
           ))
