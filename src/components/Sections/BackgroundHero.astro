@@ -7,10 +7,10 @@ const { backdrop } = Astro.props;
 ---
 
 <section
-  class="h-dvh bg-cover bg-center bg-no-repeat"
+  class="h-svh bg-cover bg-center bg-no-repeat"
   style={`background-image: url(${backdrop});`}
 >
-  <div class="relative h-full w-full bg-black/40">
+  <div class="relative h-full w-full overflow-hidden bg-black/40">
     <slot />
   </div>
 </section>
