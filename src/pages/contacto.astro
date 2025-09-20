@@ -1,9 +1,14 @@
 ---
 import MainButton from '@/components/MainButton.astro';
 import Layout from '@/layouts/Layout.astro';
+
+const title = 'Contacto | Nahual Studio - Estudio de Diseño Gráfico';
+const description =
+  'Ponte en contacto con nosotros para informarte de todos nuestros servicios en Nahual Studio.';
+const canonical = 'https://nahual-studio.vercel.app/contacto';
 ---
 
-<Layout title="Contacto - Nahual Studio">
+<Layout title={title} description={description} canonical={canonical}>
   <section
     class="bg-light-lily relative flex min-h-dvh items-center justify-center px-5 py-16"
   >

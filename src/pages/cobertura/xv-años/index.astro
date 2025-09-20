@@ -22,9 +22,14 @@ const bentoImages = [
   { image: Grid4, alt: 'Amigos disfrutando de la fiesta de XV años' },
   { image: Grid5, alt: 'El quinceañero de pie frente a las letras de XV años' },
 ];
+
+const title = 'Cobertura de XV años | Nahual Studio - Estudio de Diseño Gráfico';
+const description =
+  'Infórmate sobre nuestro servicio de Cobertura de XV años y agenda con nosotros tu próximo evento.';
+const canonical = 'https://nahual-studio.vercel.app/cobertura/xv-años';
 ---
 
-<Layout>
+<Layout title={title} description={description} canonical={canonical}>
   <BackgroundHero backdrop="/images/background/xv-años.webp">
     <h1
       class="text-light-lily anim-title text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"

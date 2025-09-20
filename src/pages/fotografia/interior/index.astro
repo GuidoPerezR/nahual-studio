@@ -22,9 +22,14 @@ const bentoImages = [
   { image: Grid4, alt: 'Familia dentro de una camioneta blanca Nissan' },
   { image: Grid5, alt: 'Mujer joven abriendo el cofre de un automóvil Nissan' },
 ];
+
+const title = 'Fotografía interior | Nahual Studio - Estudio de Diseño Gráfico';
+const description =
+  'Infórmate sobre nuestro servicio de Fotografía interior y agenda con nosotros tu próximo evento.';
+const canonical = 'https://nahual-studio.vercel.app/fotografia/interior';
 ---
 
-<Layout>
+<Layout title={title} description={description} canonical={canonical}>
   <BackgroundHero backdrop="/images/background/interior.webp">
     <h1
       class="text-light-lily anim-title text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"

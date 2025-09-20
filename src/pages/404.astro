@@ -1,9 +1,14 @@
 ---
 import MainButton from '@/components/MainButton.astro';
 import Layout from '@/layouts/Layout.astro';
+
+const title = '404 | Nahual Studio - Estudio de Diseño Gráfico';
+const description =
+  'Página no encontrada en Nahual Studio. Vuelve a la página principal para informarte de todos nuestros servicios';
+const canonical = 'https://nahual-studio.vercel.app/404';
 ---
 
-<Layout>
+<Layout title={title} description={description} canonical={canonical}>
   <section
     class="bg-light-lily md:py-17 lg:py-18 lg:px-17 grid h-dvh items-center justify-center px-5 py-16 md:px-11 xl:px-24 xl:py-20"
   >

@@ -33,9 +33,14 @@ const bentoImages = [
     alt: 'Un hombre con un ramo de flores junto a una botarga con forma de corazón',
   },
 ];
+
+const title = 'Cobertura de eventos sociales | Nahual Studio - Estudio de Diseño Gráfico';
+const description =
+  'Infórmate sobre nuestro servicio de Cobertura de eventos sociales y agenda con nosotros tu próximo evento.';
+const canonical = 'https://nahual-studio.vercel.app/cobertura/eventos-sociales';
 ---
 
-<Layout>
+<Layout title={title} description={description} canonical={canonical}>
   <BackgroundHero backdrop="/images/background/eventos-sociales.webp">
     <h1
       class="text-light-lily anim-title text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"

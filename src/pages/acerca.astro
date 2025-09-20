@@ -18,9 +18,14 @@ const team = [
     job: 'Diseñador gráfico y Coordinadora de Marketing',
   },
 ];
+
+const title = 'Acerca de | Nahual Studio - Estudio de Diseño Gráfico';
+const description =
+  'Conoce al equipo que integra Nahual Studio, un estudio de diseño gráfico y fotografía profesional en Tapachula, Chiapas. Nos especializamos en crear identidades visuales auténticas, captar la esencia de cada historia y transformar ideas en experiencias visuales memorables.';
+const canonical = 'https://nahual-studio.vercel.app/acerca';
 ---
 
-<Layout title="Acerca de | Nahual Studio - Estudio de Diseño Gráfico">
+<Layout title={title} description={description} canonical={canonical}>
   <BackgroundHero backdrop="/images/background/acerca.webp">
     <div
       class="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-5 py-16 text-center md:max-w-xl md:px-0 md:py-0"
