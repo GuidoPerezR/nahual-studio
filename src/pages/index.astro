@@ -10,9 +10,14 @@ import Testimonials from '@/sections/home/Testimonials.astro';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
+
+const title = 'Inicio | Nahual Studio - Estudio de Diseño Gráfico';
+const description =
+  'Estudio de diseño gráfico especializado en branding y fotografía profesional. Creamos identidades visuales impactantes y atractivas para impulsar el crecimiento de tu marca.';
+const canonical = 'https://nahual-studio.vercel.app/';
 ---
 
-<Layout title="Inicio | Nahual Studio - Estudio de Diseño Gráfico">
+<Layout title={title} description={description} canonical={canonical}>
   <main>
     <Hero />
     <AboutUs />

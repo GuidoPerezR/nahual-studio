@@ -28,9 +28,14 @@ const bentoImages = [
     alt: 'Pastel de chocolate y fresa con perlas de azúcar y crema batida',
   },
 ];
+
+const title = 'Fotografía Gastronómica | Nahual Studio - Estudio de Diseño Gráfico';
+const description =
+  'Infórmate sobre nuestro servicio de Fotografía Gastronómica y agenda con nosotros tu próximo evento.';
+const canonical = 'https://nahual-studio.vercel.app/fotografia/gastronomica';
 ---
 
-<Layout>
+<Layout title={title} description={description} canonical={canonical}>
   <BackgroundHero backdrop="/images/background/gastronomicas.webp">
     <h1
       class="text-light-lily anim-title text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"

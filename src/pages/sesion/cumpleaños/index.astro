@@ -25,9 +25,14 @@ const bentoImages = [
   },
   { image: Grid5, alt: 'Cumpleañera sosteniendo un cuenco artesanal' },
 ];
+
+const title = 'Sesión de cumpleaños | Nahual Studio - Estudio de Diseño Gráfico';
+const description =
+  'Infórmate sobre nuestro servicio de Sesión de cumpleaños y agenda con nosotros tu próximo evento.';
+const canonical = 'https://nahual-studio.vercel.app/sesion/cumpleaños';
 ---
 
-<Layout>
+<Layout title={title} description={description} canonical={canonical}>
   <BackgroundHero backdrop="/images/background/cumpleaños.webp">
     <h1
       class="text-light-lily anim-title text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
