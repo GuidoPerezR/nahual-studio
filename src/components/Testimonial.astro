@@ -13,7 +13,7 @@ const { text, image, author, jobTitle } = Astro.props;
     <Paragraph style="dark" class="mt-4">
       {text}
     </Paragraph>
-    <footer class="mt-6 flex items-center gap-3.5 md:mt-20">
+    <footer class="mt-6 flex items-center gap-3.5">
       {
         image ? (
           <img
@@ -33,9 +33,13 @@ const { text, image, author, jobTitle } = Astro.props;
         <p class="text-light-blue font-general-sans font-semibold">
           {author}
         </p>
-        <p class="text-light-blue font-general-sans text-[15px]">
-          {jobTitle}
-        </p>
+        {
+          jobTitle && (
+            <p class="text-light-blue font-general-sans text-[15px]">
+              {jobTitle}
+            </p>
+          )
+        }
       </div>
     </footer>
   </div>
