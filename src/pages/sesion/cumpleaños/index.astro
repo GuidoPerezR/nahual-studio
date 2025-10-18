@@ -42,16 +42,37 @@ const canonical = 'https://nahual-studio.vercel.app/sesion/cumpleaños';
     </h1>
   </BackgroundHero>
 
-  <SecondaryTextImage
-    title="Sesión de cumpleaños"
-    description="En Nahual Studio creemos que cada sesión fotográfica es una oportunidad para contar una historia auténtica."
-    image={primaryImage}
-  />
+  <SecondaryTextImage title="Sesión de cumpleaños" image={primaryImage}>
+    <div class="font-general-sans anim-element text-light-lily max-w-xs">
+      <p class="leading-paragraph">
+        En Nahual Studio creemos que cada sesión fotográfica es una oportunidad
+        para contar una historia auténtica.
+      </p>
+    </div>
+  </SecondaryTextImage>
 
   <SecondaryBento
-    title="Lorem ipsum dolor sit"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
+    title="Adi Marcial, 25 años"
     buttonLabel="¡Agenda ahora!"
     images={bentoImages}
-  />
+  >
+    <div class="font-general-sans text-light-blue anim-element max-w-xl">
+      <p class="leading-paragraph mb-2">
+        Cuando Adi Marcial nos contactó, su deseo era claro: quería que sus
+        fotos de 25 años reflejaran su orgullo y esencia oaxaqueña, mostrando la
+        fuerza, el color y la tradición que la caracterizan.
+      </p>
+      <p class="leading-paragraph mb-2">
+        Viajamos hasta Oaxaca, donde cada rincón, cada tela bordada y cada
+        sonrisa se convirtió en parte de una narrativa visual llena de
+        identidad. Buscamos capturar no solo su belleza exterior, sino también
+        la conexión con sus raíces y su espíritu alegre.
+      </p>
+      <p class="leading-paragraph">
+        El resultado fue una sesión que fusionó cultura, emoción y arte. Un
+        homenaje a la mujer oaxaqueña que celebra su historia con orgullo y
+        elegancia.
+      </p>
+    </div>
+  </SecondaryBento>
 </Layout>

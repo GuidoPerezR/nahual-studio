@@ -38,16 +38,37 @@ const canonical = 'https://nahual-studio.vercel.app/diseño/creacion-marca';
     </h1>
   </BackgroundHero>
 
-  <PrimaryTextImage
-    title="Lorem ipsum dolor sit"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
-    image={primaryImage}
-  />
+  <PrimaryTextImage title="Creación de Marca" image={primaryImage}>
+    <div class="font-general-sans anim-element text-light-lily max-w-xs">
+      <p class="leading-paragraph">
+        Crear una marca no es solo diseñar un logo; es construir una identidad
+        que refleje quién eres y cómo quieres que te perciban. Nuestro servicio
+        de creación de marca está diseñado para transformar ideas en una imagen
+        coherente, atractiva y memorable, que conecte con tu público y te
+        diferencie en el mercado.
+      </p>
+    </div>
+  </PrimaryTextImage>
 
   <PrimaryBento
-    title="Lorem ipsum dolor sit"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
+    title="Dando Vida a Tu Identidad"
     buttonLabel="¡Agenda ahora!"
     images={bentoImages}
-  />
+  >
+    <div class="font-general-sans text-light-blue anim-element max-w-xl">
+      <p class="leading-paragraph mb-2">
+        Desde el desarrollo de logotipo, paleta de colores y tipografía, hasta
+        la definición de valores, personalidad y tono de comunicación, cada
+        elemento se crea estratégicamente para contar la historia de tu marca.
+        Nuestro objetivo es que tu marca no solo se vea bien, sino que inspire
+        confianza, genere reconocimiento y deje una impresión duradera.
+      </p>
+      <p class="leading-paragraph">
+        Con nuestro servicio de creación de marca, cada detalle importa, porque
+        sabemos que la identidad visual y emocional de tu negocio es la base
+        para construir relaciones fuertes con tus clientes y destacar en un
+        mercado competitivo.
+      </p>
+    </div>
+  </PrimaryBento>
 </Layout>

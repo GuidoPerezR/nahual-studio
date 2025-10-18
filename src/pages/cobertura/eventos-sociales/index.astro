@@ -34,7 +34,8 @@ const bentoImages = [
   },
 ];
 
-const title = 'Cobertura de eventos sociales | Nahual Studio - Estudio de Diseño Gráfico';
+const title =
+  'Cobertura de eventos sociales | Nahual Studio - Estudio de Diseño Gráfico';
 const description =
   'Infórmate sobre nuestro servicio de Cobertura de eventos sociales y agenda con nosotros tu próximo evento.';
 const canonical = 'https://nahual-studio.vercel.app/cobertura/eventos-sociales';
@@ -50,15 +51,34 @@ const canonical = 'https://nahual-studio.vercel.app/cobertura/eventos-sociales';
   </BackgroundHero>
 
   <SecondaryTextImage
-    title="Lorem ipsum dolor sit"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
+    title="Cobertura de eventos sociales"
     image={primaryImage}
-  />
+  >
+    <div class="font-general-sans anim-element text-light-lily max-w-xs">
+      <p class="leading-paragraph">
+        En Nahual Studio capturamos cada instante que hace único tu evento. Nos
+        especializamos en documentar celebraciones, lanzamientos y momentos
+        especiales, asegurándonos de que cada imagen y video refleje la emoción,
+        la energía y la esencia del momento.
+      </p>
+    </div>
+  </SecondaryTextImage>
 
   <SecondaryBento
-    title="Lorem ipsum dolor sit"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
+    title="Inauguración de un Nissan"
     buttonLabel="¡Agenda ahora!"
     images={bentoImages}
-  />
+  >
+    <div class="font-general-sans text-light-blue anim-element max-w-xl">
+      <p class="leading-paragraph mb-2">
+        Tuvimos el privilegio de cubrir la inauguración de un nuevo modelo de
+        Nissan, desde la presentación del vehículo hasta los detalles que
+        hicieron del evento una experiencia memorable. Cada fotografía y video
+        capturó la elegancia, la innovación y la emoción del lanzamiento.
+      </p>
+      <p class="leading-paragraph">
+        Con Nahual Studio, tus eventos no solo se viven, se inmortalizan.
+      </p>
+    </div>
+  </SecondaryBento>
 </Layout>
