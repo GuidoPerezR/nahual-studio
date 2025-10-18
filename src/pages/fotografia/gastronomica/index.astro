@@ -29,7 +29,8 @@ const bentoImages = [
   },
 ];
 
-const title = 'Fotografía Gastronómica | Nahual Studio - Estudio de Diseño Gráfico';
+const title =
+  'Fotografía Gastronómica | Nahual Studio - Estudio de Diseño Gráfico';
 const description =
   'Infórmate sobre nuestro servicio de Fotografía Gastronómica y agenda con nosotros tu próximo evento.';
 const canonical = 'https://nahual-studio.vercel.app/fotografia/gastronomica';
@@ -44,16 +45,31 @@ const canonical = 'https://nahual-studio.vercel.app/fotografia/gastronomica';
     </h1>
   </BackgroundHero>
 
-  <SecondaryTextImage
-    title="Lorem ipsum dolor sit"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
-    image={primaryImage}
-  />
+  <SecondaryTextImage title="Fotografía Gastronómica" image={primaryImage}>
+    <div class="font-general-sans anim-element text-light-lily max-w-xs">
+      <p class="leading-paragraph">
+        En Nahual Studio creemos que la comida también se disfruta con la vista.
+        Nuestra fotografía gastronómica busca resaltar los colores, texturas y
+        detalles que hacen irresistible cada platillo.
+      </p>
+    </div>
+  </SecondaryTextImage>
 
   <SecondaryBento
-    title="Lorem ipsum dolor sit"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
+    title="Capturando El Sabor"
     buttonLabel="¡Agenda ahora!"
     images={bentoImages}
-  />
+  >
+    <div class="font-general-sans text-light-blue anim-element max-w-xl">
+      <p class="leading-paragraph mb-2">
+        Cuidamos la iluminación, el ángulo y la composición para que cada imagen
+        transmita sabor, frescura y autenticidad. Ideal para restaurantes,
+        marcas y emprendimientos culinarios que desean destacar su propuesta
+        visualmente y conectar con sus clientes.
+      </p>
+      <p class="leading-paragraph">
+        Con Nahual Studio, tus platillos no solo se ven bien, abren el apetito.
+      </p>
+    </div>
+  </SecondaryBento>
 </Layout>

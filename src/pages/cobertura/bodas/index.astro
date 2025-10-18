@@ -41,16 +41,33 @@ const canonical = 'https://nahual-studio.vercel.app/cobertura/bodas';
     </h1>
   </BackgroundHero>
 
-  <PrimaryTextImage
-    title="Lorem ipsum dolor sit"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
-    image={primaryImage}
-  />
+  <PrimaryTextImage title="Fotografía de Bodas" image={primaryImage}>
+    <div class="font-general-sans anim-element text-light-lily max-w-xs">
+      <p class="leading-paragraph">
+        En Nahual Studio entendemos que una boda es uno de los días más
+        importantes de la vida, lleno de emociones, detalles y momentos
+        irrepetibles. Nuestro objetivo es capturar cada sonrisa, abrazo y
+        mirada, transformando esos instantes en recuerdos eternos que se podrán
+        revivir una y otra vez.
+      </p>
+    </div>
+  </PrimaryTextImage>
 
   <PrimaryBento
-    title="Lorem ipsum dolor sit"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
+    title="Citlali & Eduardo"
     buttonLabel="¡Agenda ahora!"
     images={bentoImages}
-  />
+  >
+    <div class="font-general-sans text-light-blue anim-element max-w-xl">
+      <p class="leading-paragraph mb-2">
+        Tuvimos el privilegio de documentar la boda de Citlali y Eduardo,
+        capturando la magia de su día, desde la ceremonia hasta la celebración
+        con familiares y amigos. Cada fotografía refleja la emoción, el amor y
+        la alegría que hicieron de este evento algo inolvidable.
+      </p>
+      <p class="leading-paragraph">
+        Con Nahual Studio, tu boda no solo se celebra, se recuerda para siempre.
+      </p>
+    </div>
+  </PrimaryBento>
 </Layout>

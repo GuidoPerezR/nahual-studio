@@ -5,12 +5,11 @@ import MainButton from '../MainButton.astro';
 
 interface Props {
   title: string;
-  description: string;
   images: ImageType[];
   buttonLabel: string;
 }
 
-const { title, description, images, buttonLabel } = Astro.props;
+const { title, images, buttonLabel } = Astro.props;
 ---
 
 <section
@@ -61,15 +60,14 @@ const { title, description, images, buttonLabel } = Astro.props;
   </div>
 
   <div class="anim-element">
-    <div class="mb-8 max-w-xl">
+    <div class="mb-8 max-w-2xl">
       <h2
         class="text-light-blue text-header-2-mobile xl:text-header-2 leading-header font-tanker anim-title mb-4"
       >
         {title}
       </h2>
-      <p class="text-light-blue leading-paragraph font-general-sans max-w-lg">
-        {description}
-      </p>
+
+      <slot />
     </div>
 
     <MainButton

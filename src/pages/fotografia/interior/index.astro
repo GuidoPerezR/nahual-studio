@@ -38,16 +38,31 @@ const canonical = 'https://nahual-studio.vercel.app/fotografia/interior';
     </h1>
   </BackgroundHero>
 
-  <PrimaryTextImage
-    title="Lorem ipsum dolor sit"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
-    image={primaryImage}
-  />
+  <PrimaryTextImage title="Fotografía de Interiores" image={primaryImage}>
+    <div class="font-general-sans anim-element text-light-lily max-w-xs">
+      <p class="leading-paragraph">
+        En Nahual Studio destacamos la belleza y esencia de cada espacio.
+        Nuestra fotografía de interiores busca resaltar la luz, los detalles y
+        la atmósfera que hacen único a cada lugar.
+      </p>
+    </div>
+  </PrimaryTextImage>
 
   <PrimaryBento
-    title="Lorem ipsum dolor sit"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis."
+    title="Espacios Que Hablan"
     buttonLabel="¡Agenda ahora!"
     images={bentoImages}
-  />
+  >
+    <div class="font-general-sans text-light-blue anim-element max-w-xl">
+      <p class="leading-paragraph mb-2">
+        Capturamos espacios con una visión estética y técnica, ideal para
+        arquitectos, diseñadores, negocios o marcas que desean proyectar
+        profesionalismo y estilo. Cada imagen refleja equilibrio, composición y
+        emoción, logrando que los ambientes hablen por sí mismos.
+      </p>
+      <p class="leading-paragraph">
+        Con Nahual Studio, tus espacios se convierten en experiencias visuales.
+      </p>
+    </div>
+  </PrimaryBento>
 </Layout>
