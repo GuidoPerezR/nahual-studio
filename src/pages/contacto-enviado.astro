@@ -1,0 +1,29 @@
+---
+import MainButton from '@/components/MainButton.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const title = 'Formulario Enviado | Nahual Studio - Estudio de Diseño Gráfico';
+---
+
+<Layout title={title}>
+  <section
+    class="bg-light-lily relative flex min-h-dvh items-center justify-center px-5 py-16"
+  >
+    <div class="w-full max-w-xl text-center">
+      <div class="mb-8">
+        <h2
+          class="text-light-blue font-tanker leading-header text-header-2-mobile lg:text-header-2 mb-4 uppercase"
+        >
+          Tu información se ha enviado correctamente
+        </h2>
+        <p class="text-light-blue leading-paragraph font-general-sans">
+          Te estaremos contactando lo mas pronto posible. Agradecemos su interés
+          en nuestros servicios.
+        </p>
+      </div>
+      <MainButton url="/" class="mx-auto" noblank
+        >Ir a la página principal</MainButton
+      >
+    </div>
+  </section>
+</Layout>
