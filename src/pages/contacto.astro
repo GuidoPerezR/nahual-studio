@@ -1,5 +1,4 @@
 ---
-import MainButton from '@/components/MainButton.astro';
 import Layout from '@/layouts/Layout.astro';
 
 const title = 'Contacto | Nahual Studio - Estudio de Diseño Gráfico';
@@ -16,7 +15,12 @@ const canonical = 'https://nahual-studio.vercel.app/contacto';
       <progress id="progress" max="100" value="0" class="w-full text-xs"
       ></progress>
     </aside>
-    <form action="" class="w-full max-w-md" id="contact-form">
+    <form
+      action="https://formsubmit.co/nahualstudiosoficial@gmail.com"
+      method="post"
+      class="w-full max-w-md"
+      id="contact-form"
+    >
       <div class="step active">
         <fieldset class="flex flex-col items-center justify-center">
           <div class="max-w-2xs flex items-center justify-center">
@@ -32,7 +36,7 @@ const canonical = 'https://nahual-studio.vercel.app/contacto';
             <input
               type="text"
               id="name"
-              name="name"
+              name="nombre"
               class="border-light-blue focus:outline-dark-lily font-general-sans text-light-blue w-full border-b-2 px-2 pb-0.5 pt-2 font-medium"
             />
           </div>
@@ -59,7 +63,7 @@ const canonical = 'https://nahual-studio.vercel.app/contacto';
             <input
               type="email"
               id="email"
-              name="email"
+              name="correo"
               class="border-light-blue focus:outline-dark-lily font-general-sans text-light-blue w-full border-b-2 px-2 pb-0.5 pt-2 font-medium"
             />
           </div>
@@ -96,7 +100,7 @@ const canonical = 'https://nahual-studio.vercel.app/contacto';
             <input
               type="text"
               id="message"
-              name="message"
+              name="mensaje"
               class="border-light-blue focus:outline-dark-lily font-general-sans text-light-blue w-full border-b-2 px-2 pb-0.5 pt-2 font-medium"
             />
           </div>
@@ -111,7 +115,7 @@ const canonical = 'https://nahual-studio.vercel.app/contacto';
             </button>
             <button
               type="submit"
-              id="submit"
+              id="submit-btn"
               class="bg-light-blue text-light-lily hover:bg-dark-blue cursor-pointer rounded-lg px-9 py-2 transition-colors duration-200"
             >
               Enviar
@@ -119,23 +123,17 @@ const canonical = 'https://nahual-studio.vercel.app/contacto';
           </footer>
         </fieldset>
       </div>
+      <input
+        type="hidden"
+        name="_next"
+        value="https://nahual-studio.vercel.app/contacto-enviado"
+      />
+      <input
+        type="hidden"
+        name="_subject"
+        value="Nuevo mensaje de contacto desde Nahual Studio"
+      />
     </form>
-    <div class="hidden w-full max-w-xl text-center" id="success-advise">
-      <div class="mb-8">
-        <h2
-          class="text-light-blue font-tanker leading-header text-header-2-mobile lg:text-header-2 mb-4 uppercase"
-        >
-          Tu información se ha enviado correctamente
-        </h2>
-        <p class="text-light-blue leading-paragraph font-general-sans">
-          Te estaremos contactando lo mas pronto posible. Agradecemos su interés
-          en nuestros servicios.
-        </p>
-      </div>
-      <MainButton url="/" class="mx-auto" noblank
-        >Ir a la página principal</MainButton
-      >
-    </div>
   </section>
 </Layout>
 
