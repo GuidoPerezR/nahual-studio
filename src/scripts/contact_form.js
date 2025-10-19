@@ -20,6 +20,15 @@ function showStep(index) {
     step.classList.toggle('hidden', i !== index);
     step.classList.toggle('active', i === index);
   });
+
+  // Hacer focus en el input del paso actual
+  const currentInput = steps[index].querySelector(
+    'input[type="text"], input[type="email"]',
+  );
+  if (currentInput) {
+    // Pequeño delay para asegurar que la animación termine
+    setTimeout(() => currentInput.focus(), 100);
+  }
 }
 
 function disabledFormButton(button) {
@@ -113,6 +122,24 @@ function handlePrev() {
   }
 }
 
+function handleEnterKey(e) {
+  // Si se presiona Enter
+  if (e.key === 'Enter') {
+    e.preventDefault(); // Previene el submit por defecto
+
+    // Si estamos en el último paso, enviar el formulario
+    if (currentStep === steps.length - 1) {
+      contactForm.requestSubmit();
+    } else {
+      // Si no, avanzar al siguiente paso
+      const nextButton = steps[currentStep].querySelector('.next');
+      if (nextButton) {
+        nextButton.click();
+      }
+    }
+  }
+}
+
 function handleSubmit(e) {
   e.preventDefault();
   const inputContainer = steps[currentStep].querySelector('.input-container');
@@ -131,14 +158,14 @@ function handleSubmit(e) {
     }
 
     currentStep++;
-    enableFormButton(submitButton);
+    // enableFormButton(submitButton);
     updateProgressBar(currentStep);
     // Aquí puedes procesar el envío del formulario
-    // window.alert('Correo enviado');
+    contactForm.submit();
 
-    showStep(currentStep);
-    contactForm.classList.add('hidden');
-    successAdvice.classList.remove('hidden');
+    // showStep(currentStep);
+    // contactForm.classList.add('hidden');
+    // successAdvice.classList.remove('hidden');
   }, 300);
 }
 
@@ -157,7 +184,7 @@ function initContactForm() {
   contactForm = document.querySelector('#contact-form');
   steps = document.querySelectorAll('.step');
   progress = document.querySelector('#progress');
-  submitButton = document.querySelector('#submit');
+  submitButton = document.querySelector('#submit-btn');
   successAdvice = document.querySelector('#success-advise');
 
   // Si no encontramos el formulario, no hacemos nada
@@ -191,6 +218,18 @@ function initContactForm() {
       submitButton.removeEventListener('click', clickHandler),
     );
   }
+
+  // Agregar listener para la tecla Enter en todos los inputs
+  const inputs = contactForm.querySelectorAll(
+    'input[type="text"], input[type="email"]',
+  );
+  inputs.forEach((input) => {
+    const enterHandler = (e) => handleEnterKey(e);
+    input.addEventListener('keydown', enterHandler);
+    cleanupFunctions.push(() =>
+      input.removeEventListener('keydown', enterHandler),
+    );
+  });
 
   // Muestra el primer paso
   showStep(currentStep);
