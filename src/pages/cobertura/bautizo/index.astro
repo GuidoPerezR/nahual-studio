@@ -1,0 +1,67 @@
+---
+import Grid1 from '@/assets/images/coberturas/bautizo/grid-1.webp';
+import Grid2 from '@/assets/images/coberturas/bautizo/grid-2.webp';
+import Grid3 from '@/assets/images/coberturas/bautizo/grid-3.webp';
+import Grid4 from '@/assets/images/coberturas/bautizo/grid-4.webp';
+import Grid5 from '@/assets/images/coberturas/bautizo/grid-5.webp';
+import PrimaryImage from '@/assets/images/coberturas/bautizo/primary.webp';
+import BackgroundHero from '@/components/Sections/BackgroundHero.astro';
+import PrimaryBento from '@/components/Sections/PrimaryBento.astro';
+import PrimaryTextImage from '@/components/Sections/PrimaryTextImage.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const primaryImage = {
+  image: PrimaryImage,
+  alt: 'Madre sosteniendo a su bebé durante el bautizo',
+};
+
+const bentoImages = [
+  { image: Grid1, alt: 'Madre viendo a su bebé' },
+  { image: Grid2, alt: 'El bebé siendo sostenido por su familia' },
+  { image: Grid3, alt: 'Foto de la bebé' },
+  { image: Grid4, alt: 'Foto del padre de espaldas tocando una vela' },
+  { image: Grid5, alt: 'Foto de la bebé abrazada por su familia' },
+];
+
+const title =
+  'Cobertura de Bautizo | Nahual Studio - Estudio de Diseño Gráfico';
+const description =
+  'Infórmate sobre nuestro servicio de Cobertura de Bautizo y agenda con nosotros tu próximo evento.';
+const canonical = 'https://nahual-studio.vercel.app/cobertura/bautizo';
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <BackgroundHero backdrop="/images/background/bautizo.webp">
+    <h1
+      class="text-light-lily anim-title text-header-1-mobile xl:text-header-1 leading-header font-tanker absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center uppercase md:max-w-xl"
+    >
+      Cobertura de Bautizo
+    </h1>
+  </BackgroundHero>
+
+  <PrimaryTextImage title="Bautizo" image={primaryImage}>
+    <div class="font-general-sans anim-element text-light-lily max-w-xs">
+      <p class="leading-paragraph">
+        En Nahual Studio convertimos cada instante del bautizo en un recuerdo
+        eterno. Capturamos la pureza, la emoción y el significado de este
+        momento tan especial, preservando cada detalle con sensibilidad y
+        estilo.
+      </p>
+    </div>
+  </PrimaryTextImage>
+
+  <PrimaryBento
+    title="Evento de Bautizo"
+    buttonLabel="¡Agenda ahora!"
+    images={bentoImages}
+  >
+    <div class="font-general-sans text-light-blue anim-element max-w-xl">
+      <p class="leading-paragraph mb-2">
+        Creemos que los recuerdos más valiosos merecen ser tratados con
+        dedicación, profesionalismo y corazón. Permítenos acompañarte en este
+        día tan importante y transformar esos instantes únicos en memorias que
+        podrás revivir para siempre
+      </p>
+    </div>
+  </PrimaryBento>
+</Layout>
